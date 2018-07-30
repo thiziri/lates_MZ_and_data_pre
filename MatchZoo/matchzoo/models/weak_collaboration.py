@@ -6,6 +6,7 @@ from keras.models import Model
 from keras.layers import *
 from model import BasicModel
 from utils.utility import *
+from keras.utils.vis_utils import plot_model
 
 class WeakCollaboration(BasicModel):
     def __init__(self, config):
@@ -62,7 +63,7 @@ class WeakCollaboration(BasicModel):
         dense = Dense(self.config["hidden_sizes"][0], activation=self.config['hidden_activation'],
                       name="MLP_combine_0")(merged)
         show_layer_info('Dense', dense)
-        for i in range(self.config["num_layers"] - 2):
+        for i in range(self.config["num_layers"] - 1):
             dense = BatchNormalization()(dense)
             dense = Dropout(self.config["dropout_rate"])(dense)
             dense = Dense(self.config["hidden_sizes"][i + 1], activation=self.config['hidden_activation'],
@@ -74,4 +75,5 @@ class WeakCollaboration(BasicModel):
         show_layer_info('Output', out_)
 
         model = Model(inputs=[query, doc], outputs=[out_])
+        plot_model(model, to_file='../wc_model_plot.png', show_shapes=True, show_layer_names=True)
         return model
