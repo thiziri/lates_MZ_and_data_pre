@@ -7,6 +7,7 @@ from keras.layers import *
 from model import BasicModel
 from utils.utility import *
 from layers.Match import *
+from keras.utils.vis_utils import plot_model
 
 class ConvWeakCollaboration(BasicModel):
     def __init__(self, config):
@@ -65,7 +66,16 @@ class ConvWeakCollaboration(BasicModel):
         input_mat = Reshape((self.config["text1_maxlen"], self.config["text2_maxlen"]))(input_mat)
         merged = Conv1D(self.config['filters'], self.config['kernel_size'],
                         activation=self.config['conv_activation'])(input_mat)
+        merged = BatchNormalization()(merged)
+        merged = Dropout(self.config["dropout_rate"])(merged)
         show_layer_info('Conv1D', merged)
+        merged = MaxPooling1D(pool_size=self.config['pool_size'])(merged)
+        show_layer_info('MaxPooling1D', merged)
+        merged = Conv1D(self.config['filters'], self.config['kernel_size'],
+                        activation=self.config['conv_activation'])(input_mat)
+        show_layer_info('Conv1D', merged)
+        merged = BatchNormalization()(merged)
+        merged = Dropout(self.config["dropout_rate"])(merged)
         merged = MaxPooling1D(pool_size=self.config['pool_size'])(merged)
         show_layer_info('MaxPooling1D', merged)
         merged = Flatten()(merged)
@@ -73,7 +83,7 @@ class ConvWeakCollaboration(BasicModel):
         dense = Dense(self.config["hidden_sizes"][0], activation=self.config['hidden_activation'],
                       name="MLP_combine_0")(merged)
         show_layer_info('Dense', dense)
-        for i in range(self.config["num_layers"] - 2):
+        for i in range(self.config["num_layers"] - 1):
             dense = BatchNormalization()(dense)
             dense = Dropout(self.config["dropout_rate"])(dense)
             dense = Dense(self.config["hidden_sizes"][i + 1], activation=self.config['hidden_activation'],
@@ -85,4 +95,5 @@ class ConvWeakCollaboration(BasicModel):
         show_layer_info('Output', out_)
 
         model = Model(inputs=[query, doc], outputs=[out_])
+        plot_model(model, to_file='../conv_wc_model_plot.png', show_shapes=True, show_layer_names=True)
         return model

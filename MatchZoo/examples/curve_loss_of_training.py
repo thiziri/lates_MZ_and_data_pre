@@ -13,9 +13,9 @@ import matplotlib.pyplot as plt
 from matplotlib import rcParams
 
 def draw_train_learning_curve(log_file):
-    r = open(log_file, 'r')
-    info = r.readlines()
-    r.close() 
+    # r = open(log_file, 'r')
+    info = open(log_file, 'r')  # r.readlines()
+    # r.close()
     start_line = '[Model] Model Compile Done.'
     start_flag = False
     train_loss = []
@@ -24,7 +24,8 @@ def draw_train_learning_curve(log_file):
     test_map = []
     test_p10 = []
     for line in info: 
-        line = line.strip('\r\n')
+        line = line.strip()
+        # print(line)
         if start_flag:
             # print (line)
             tokens = line.split('\t')
@@ -35,24 +36,25 @@ def draw_train_learning_curve(log_file):
                     train_loss.append(float(tokens[2].split('=')[1]))
                 elif 'valid' in line:
                     # print (tokens)
-                    if len(tokens) < 6:
+                    if len(tokens) < 5:
                         continue
                     map_token = [token for token in tokens if "map" in token]
-                    print("map\t", map_token)
+                    # print("map\t", map_token)
                     p10_token = [token for token in tokens if "precision@10" in token]
-                    print("p10\t", p10_token)
+                    # print("p10\t", p10_token)
                     valid_map.append(float(map_token[0].split('=')[1]))
                     valid_p10.append(float(p10_token[0].split('=')[1]))
-                else:
+                elif 'test' in line:
                     # print(tokens[2], tokens[5])
                     map_token = [token for token in tokens if "map" in token]
-                    print("map\t", map_token)
+                    # print("map\t", map_token)
                     p10_token = [token for token in tokens if "precision@10" in token]
-                    print("p10\t", p10_token)
+                    # print("p10\t", p10_token)
                     test_map.append(float(map_token[0].split('=')[1]))
                     test_p10.append(float(p10_token[0].split('=')[1]))
-        if start_line in line.strip('\r\n'):
+        if start_line in line.strip():
             start_flag = True
+            # print(line)
 
     # draw learning curve
     SMALL_SIZE = 8
@@ -78,6 +80,7 @@ def draw_train_learning_curve(log_file):
         test_map = test_map[0:min_len]
         test_p10 = test_p10[0:min_len]
         x = x[0:min_len]
+    print(len(train_loss), len(valid_p10), len(valid_map), len(test_map), len(test_p10))
     line1, = plt.plot(x, train_loss, 'r-v', label='train_loss')
     line2, = plt.plot(x, valid_map, 'c-s', label='valid_map')
     line3, = plt.plot(x, valid_p10, 'm-o', label='valid_p10')
@@ -86,6 +89,7 @@ def draw_train_learning_curve(log_file):
     plt.legend(handles=[line1, line2, line3, line4, line5], loc=1)
     rcParams['grid.linestyle'] = 'dotted'
     plt.grid()
+
     min_loss = min(train_loss)
     max_p10 = max(test_p10)
     max_map = max(test_map)
