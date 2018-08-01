@@ -61,8 +61,10 @@ class ConvWeakCollaboration(BasicModel):
         show_layer_info('Bibirectional-LSTM', q_mat)
         d_mat = d_lstm_layer(d_embed)
         show_layer_info('Bibirectional-LSTM', d_mat)
-        input_mat = match([q_mat, d_mat], [0, 0], normalize=True)  # the result is cosine similarity matrix
+        input_mat = match([q_mat, d_mat], [1, 1], normalize=True)  # the result is cosine similarity matrix
         show_layer_info('Match', input_mat)
+        input_mat = BatchNormalization()(input_mat)
+        input_mat = Dropout(self.config["dropout_rate"])(input_mat)
         input_mat = Reshape((self.config["text1_maxlen"], self.config["text2_maxlen"]))(input_mat)
         merged = Conv1D(self.config['filters'], self.config['kernel_size'],
                         activation=self.config['conv_activation'])(input_mat)
