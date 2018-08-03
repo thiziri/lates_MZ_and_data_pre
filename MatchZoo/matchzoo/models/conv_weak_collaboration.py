@@ -66,6 +66,7 @@ class ConvWeakCollaboration(BasicModel):
         #input_mat = BatchNormalization()(input_mat)
         #input_mat = Dropout(self.config["dropout_rate"])(input_mat)
         input_mat = Reshape((self.config["text1_maxlen"], self.config["text2_maxlen"]))(input_mat)
+        show_layer_info('Match', input_mat)
         merged = Conv1D(self.config['filters'], self.config['kernel_size'],
                         activation=self.config['conv_activation'], name="conv1", padding='same')(input_mat)
         merged = BatchNormalization()(merged)
