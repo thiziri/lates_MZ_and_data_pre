@@ -81,12 +81,14 @@ class ConvWeakCollaboration(BasicModel):
         merged = Dropout(self.config["conv_dropout"])(merged)
         merged = MaxPooling1D(pool_size=self.config['pool_size'], name="maxPool2")(merged)
         show_layer_info('MaxPooling1D', merged)
+        """
         merged = Conv1D(self.config['filters'], self.config['kernel_size'],
                         activation=self.config['conv_activation'], name="conv3", padding='same')(input_mat)
         show_layer_info('Conv1D', merged)
         merged = BatchNormalization()(merged)
         merged = Dropout(self.config["conv_dropout"])(merged)
         merged = MaxPooling1D(pool_size=self.config['pool_size'], name="maxPool3")(merged)
+        """
         show_layer_info('MaxPooling1D', merged)
         merged = Flatten()(merged)
 
