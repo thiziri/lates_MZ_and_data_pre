@@ -71,10 +71,9 @@ if __name__ == '__main__':
 
         valid_file_name = "_".join([model_py,
                               "Qlstm", str(valid_config["model"]["setting"]["number_q_lstm_units"]),
-                               "Dlstm", str(valid_config["model"]["setting"]["number_d_lstm_units"]),
+                              "Dlstm", str(valid_config["model"]["setting"]["number_d_lstm_units"]),
                               "mask0", str(valid_config["model"]["setting"]["mask_zero"]),
-                              "train_embed", str(valid_config["inputs"]["share"]["train_embed"]),
-                              "kernel_size", str(valid_config["model"]["setting"]["kernel_size"])
+                              "train_embed", str(valid_config["inputs"]["share"]["train_embed"])
                               ])
         valid_config["global"]["weights_file"] = model_weights + valid_file_name + ".weights"
         valid_config["outputs"]["predict"]["save_path"] = save_path + valid_file_name + ".txt"
