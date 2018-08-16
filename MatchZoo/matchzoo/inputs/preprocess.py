@@ -435,6 +435,25 @@ def cal_hist(t1_rep, t2_rep, qnum, hist_size):
     mhist = np.log10(mhist)
     return mhist.flatten()
 
+def cal_hist_context(t1_rep, t2_rep, qnum, hist_size):
+    mhist = np.zeros((qnum, hist_size), dtype=np.float32)
+    # mm = t1_rep.dot(np.transpose(t2_rep))  # computes the similarity matrix between the 2 sub matrices (dot of normalized vectors)
+    mm = []
+    # for w in t1_rep:
+    #    win = extract_window(w, t2_rep)
+    #    mm_w = win.dot(np.transpose(t1_rep))
+    #    avg_w_mm = compute the averaged vector of similarity over the lines
+    #    mm.append(avg_w_mm) or use insertion on numpy array [:i] ...
+    #    compute then the histogram of the obtained mm
+    for (i, j), v in np.ndenumerate(mm):
+        if i >= qnum:
+            break
+        vid = int((v + 1.) / 2. * (hist_size - 1.))
+        mhist[i][vid] += 1.
+    mhist += 1.
+    mhist = np.log10(mhist)
+    return mhist.flatten()
+
 def cal_binsum(t1_rep, t2_rep, qnum, bin_num):
     mbinsum = np.zeros((qnum, bin_num), dtype=np.float32)
     mm = t1_rep.dot(np.transpose(t2_rep))
