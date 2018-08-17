@@ -426,6 +426,7 @@ def cal_hist(t1_rep, t2_rep, qnum, hist_size):
     #qnum = len(t1_rep)
     mhist = np.zeros((qnum, hist_size), dtype=np.float32)
     mm = t1_rep.dot(np.transpose(t2_rep))
+    # print(np.ndenumerate(mm))
     for (i,j), v in np.ndenumerate(mm):
         if i >= qnum:
             break
@@ -435,16 +436,64 @@ def cal_hist(t1_rep, t2_rep, qnum, hist_size):
     mhist = np.log10(mhist)
     return mhist.flatten()
 
-def cal_hist_context(t1_rep, t2_rep, qnum, hist_size):
+def extract_window(e, mat, k):
+    """
+    Extract a window of size k that corresponds to the occurrence of the element e in mat
+    :param e: array
+    :param mat: array
+    :param k: int
+    :return: array
+    """
+    equal_list = np.where((mat == e).all(axis=1))  # exp: (array([1, 7]),)
+    # print(equal_list)
+    pos = list(equal_list[0])
+    # print(pos)
+    # if len(pos)==0 loop up with most similar (cosine)
+    win = []
+    for p in pos:
+        cur_win = [p]
+        i = 0
+        remain = k - 1
+        if len(mat) <= k:
+            cur_win = list(range(len(mat)))
+            remain = 0
+        while remain > 0:
+            if p - (i + 1) >= 0:
+                cur_win = [p-(i+1)] + cur_win  # add the element at the beginning
+                remain -= 1
+            if p+(i+1) <= len(mat)-1:
+                cur_win.append(p+(i+1))  # add if p == len(mat)-1 : last element of mat
+                remain -= 1
+            i += 1
+        win = win + cur_win
+        # print(cur_win)
+    return mat[win]
+
+def cal_hist_context(t1_rep, t2_rep, qnum, hist_size, win_size):
+    """
+    Computes the histogram similarity values based on averaged context similarity vectors of each query word
+    with its context words
+    :param t1_rep:
+    :param t2_rep:
+    :param qnum:
+    :param hist_size:
+    :param win_size:
+    :return:
+    """
     mhist = np.zeros((qnum, hist_size), dtype=np.float32)
-    # mm = t1_rep.dot(np.transpose(t2_rep))  # computes the similarity matrix between the 2 sub matrices (dot of normalized vectors)
-    mm = []
-    # for w in t1_rep:
-    #    win = extract_window(w, t2_rep)
-    #    mm_w = win.dot(np.transpose(t1_rep))
-    #    avg_w_mm = compute the averaged vector of similarity over the lines
-    #    mm.append(avg_w_mm) or use insertion on numpy array [:i] ...
-    #    compute then the histogram of the obtained mm
+    # computes the similarity matrix between the 2 sub matrices (dot of normalized vectors)
+    mm = []  # np.zeros((qnum, hist_size), dtype=np.float32)
+    for w in t1_rep:
+        win = extract_window(w, t2_rep, win_size)
+        # print("win ", win)
+        mm_w = win.dot(np.transpose(t1_rep))  # matrix of win_size*qnum
+        # print("mm_w ", mm_w)
+        if len(mm_w) > 0:
+            avg_w_mm = mm_w.mean(axis=0)  # compute the averaged vector of similarity over the lines (context words)
+            mm.append(list(avg_w_mm))  # add the averaged similarity vector
+    # compute then the histogram of the obtained mm
+    mm = np.array(mm)
+    # print('mm ', mm)
     for (i, j), v in np.ndenumerate(mm):
         if i >= qnum:
             break
