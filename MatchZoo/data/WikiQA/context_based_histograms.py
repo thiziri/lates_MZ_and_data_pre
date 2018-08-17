@@ -10,18 +10,19 @@ from rank_io import *
 
 if __name__ == '__main__':
     hist_size = int(sys.argv[1])
-    srcdir = './'
+    win_size = int(sys.argv[2])
+    srcdir = sys.argv[3]
     embedfile = srcdir + 'embed_glove_d300_norm'
     corpusfile = srcdir + 'corpus_preprocessed.txt'
 
-    relfiles = [ srcdir + 'relation_train.txt',
-            srcdir + 'relation_valid.txt',
-            srcdir + 'relation_test.txt'
-            ]
+    relfiles = [srcdir + 'relation_train.txt',
+                srcdir + 'relation_valid.txt',
+                srcdir + 'relation_test.txt'
+                ]
     histfiles = [
-            srcdir + 'relation_train.hist-%d.txt' % hist_size,
-            srcdir + 'relation_valid.hist-%d.txt' % hist_size,
-            srcdir + 'relation_test.hist-%d.txt' % hist_size
+            srcdir + 'context_relation_train.hist-%d.txt' % hist_size,
+            srcdir + 'context_relation_valid.hist-%d.txt' % hist_size,
+            srcdir + 'context_relation_test.hist-%d.txt' % hist_size
             ]
     embed_dict = read_embedding(filename=embedfile)
     print('read embedding finished ...')
@@ -43,7 +44,8 @@ if __name__ == '__main__':
             qnum = len(corpus[d1])
             d1_embed = embed[corpus[d1]]  # get all embedded words of d1 and d2: sub-matrices embed[[w1, w2 ...]]
             d2_embed = embed[corpus[d2]]
-            curr_hist = cal_hist_context(d1_embed, d2_embed, qnum, hist_size)  # compute the context based histogram
+            print(len(d1_embed), len(d2_embed))
+            curr_hist = cal_hist_context(d1_embed, d2_embed, qnum, hist_size, win_size)  # compute the context based histogram
             curr_hist = curr_hist.tolist()
             fout.write(' '.join(map(str, curr_hist)))
             fout.write('\n')
