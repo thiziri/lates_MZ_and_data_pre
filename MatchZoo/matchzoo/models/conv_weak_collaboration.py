@@ -103,7 +103,11 @@ class ConvWeakCollaboration(BasicModel):
             show_layer_info('Dense', dense)
         dense = BatchNormalization()(dense)
         dense = Dropout(self.config["dropout_rate"])(dense)
-        out_ = Dense(1, activation=self.config['output_activation'], name="MLP_out")(dense)
+        # out_ = Dense(1, activation=self.config['output_activation'], name="MLP_out")(dense)
+        if self.config['target_mode'] == 'classification':
+            out_ = Dense(2, activation=self.config['output_activation'], name="MLP_out")(dense)
+        elif self.config['target_mode'] in ['regression', 'ranking']:
+            out_ = Dense(1, activation=self.config['output_activation'], name="MLP_out")(dense)
         show_layer_info('Output', out_)
 
         model = Model(inputs=[query, doc], outputs=[out_])

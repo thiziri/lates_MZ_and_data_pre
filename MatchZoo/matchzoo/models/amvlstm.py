@@ -19,7 +19,7 @@ class A_MVLSTM(BasicModel):
         self.__name = 'A_MVLSTM'
         self.check_list = [ 'text1_maxlen', 'text2_maxlen',
                    'embed', 'embed_size', 'train_embed',  'vocab_size',
-                   'hidden_size', 'topk', 'dropout_rate']
+                   'hidden_size', 'topk', 'dropout_rate', 'text1_attention', 'text2_attention']
         self.embed_trainable = config['train_embed']
         self.setup(config)
         self.initializer_gate = keras.initializers.RandomUniform(minval=-0.01, maxval=0.01, seed=11)
@@ -34,6 +34,7 @@ class A_MVLSTM(BasicModel):
         self.set_default('hidden_size', 32)
         self.set_default('topk', 100)
         self.set_default('dropout_rate', 0)
+        self.set_default('text1_attention', True)
         self.config.update(config)
 
     def build(self):
@@ -48,17 +49,32 @@ class A_MVLSTM(BasicModel):
         show_layer_info('Embedding_q', q_embed)
 
         # ########## compute attention weights for the query words: better then mvlstm alone
-        q_w = Dense(1, kernel_initializer=self.initializer_gate, use_bias=False)(q_embed)
-        show_layer_info('Dense', q_w)
-        q_w = Lambda(lambda x: softmax(x, axis=1), output_shape=(self.config['text1_maxlen'],))(q_w)
-        show_layer_info('Lambda-softmax', q_w)
-        # ########## add attention weights for Q_words
-        q_w_layer = Lambda(lambda x: K.repeat_elements(q_w, rep=self.config['embed_size'], axis=2))(q_w)
-        q_embed = Multiply()([q_w_layer, q_embed])
-        show_layer_info('Dot-qw', q_embed)
+        if self.config["text1_attention"]:
+            q_w = Dense(1, kernel_initializer=self.initializer_gate, use_bias=False)(q_embed)  # use_bias=False to simple combination
+            show_layer_info('Dense', q_w)
+            q_w = Lambda(lambda x: softmax(x, axis=1), output_shape=(self.config['text1_maxlen'],))(q_w)
+            show_layer_info('Lambda-softmax', q_w)
+            # ########## add attention weights for Q_words
+            q_w_layer = Lambda(lambda x: K.repeat_elements(q_w, rep=self.config['embed_size'], axis=2))(q_w)
+            show_layer_info('repeat', q_w_layer)
+            q_embed = Multiply()([q_w_layer, q_embed])
+            show_layer_info('Dot-qw', q_embed)
+        # ####################### attention
 
         d_embed = embedding(doc)
         show_layer_info('Embedding_d', d_embed)
+
+        # ########## compute attention weights for the document words:
+        if self.config['text2_attention']:
+            d_w = Dense(1, kernel_initializer=self.initializer_gate, use_bias=False)(d_embed)
+            show_layer_info('Dense', d_w)
+            d_w = Lambda(lambda x: softmax(x, axis=1), output_shape=(self.config['text2_maxlen'],))(d_w)
+            show_layer_info('Lambda-softmax', d_w)
+            # ########## add attention weights for D_words
+            d_w_layer = Lambda(lambda x: K.repeat_elements(d_w, rep=self.config['embed_size'], axis=2))(d_w)
+            d_embed = Multiply()([d_w_layer, d_embed])
+            show_layer_info('Dot-qw', d_embed)
+        # ####################### attention
 
         q_rep = Bidirectional(LSTM(self.config['hidden_size'], return_sequences=True, dropout=self.config['dropout_rate']))(q_embed)
         show_layer_info('Bidirectional-LSTM_q', q_rep)
