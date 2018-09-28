@@ -90,6 +90,7 @@ def draw_train_learning_curve(log_file, measures):
         line, = plt.plot(x, test[measure], marker.__next__(), label='test_'+measure)
         handles_lines.append(line)
 
+    plt.hlines(y=0.76, colors='red', xmin=0, xmax=500)
     plt.legend(handles=handles_lines, loc=(0.7,0.5))
     rcParams['grid.linestyle'] = 'dotted'
     plt.grid()
