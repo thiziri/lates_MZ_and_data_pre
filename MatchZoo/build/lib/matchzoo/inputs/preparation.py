@@ -1,22 +1,23 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 
-import sys
 import os
 import codecs
-import numpy as np
 import hashlib
 import random
-
-import preprocess
+from tqdm import tqdm
 
 
 class Preparation(object):
-    '''Convert dataset of different text matching tasks into a unified format as the input of deep matching modules. Users provide datasets contain pairs of texts along with their labels, and the module produces the following files:
+    """
+    Convert dataset of different text matching tasks into a unified format as the input of deep matching modules.
+    Users provide datasets contain pairs of texts along with their labels, and the module produces the following files:
     * Word Dictionary: this file records the mapping from each word to a unique identifier.
-    * Corpus File: this file records the mapping from each text to a unique identifiers, along with a sequence of word identifiers contained in text.
-    * Relation File: this file records the relationship between two texts, each line containing the label and a pair of ids.
-    '''
+    * Corpus File: this file records the mapping from each text to a unique identifiers, along with a sequence of word
+    identifiers contained in text.
+    * Relation File: this file records the relationship between two texts, each line containing the label and a pair
+    of ids.
+    """
 
     def __init__(self):
         pass
@@ -30,6 +31,14 @@ class Preparation(object):
             tid = idtag + str(len(hashid))  # start from 0, 1, 2, ...
             hashid[hex_dig] = tid
             return tid
+
+    def get_text_id_trec(self, hashid, text):
+        hash_obj = hashlib.sha1(text.encode('utf8'))  # if the text are the same, then the hash_code are also the same
+        hex_dig = hash_obj.hexdigest()
+        try:
+            return hashid[hex_dig]
+        except Exception as e:
+            print(e + "\nInvalid text input : " + text)
 
     def parse_line(self, line, delimiter='\t'):
         subs = line.split(delimiter)
@@ -70,6 +79,32 @@ class Preparation(object):
         f.close()
         return corpus, rels
 
+    def run_with_one_corpus_trec(self, file_path, corpus_file):
+        hashid = {}
+        f = codecs.open(corpus_file, 'r', encoding='utf8')
+        print("Getting TREC ids ...")
+        for line in tqdm(f):
+            _id = line.strip().split()[0]
+            text = line.strip()[len(_id):].strip()
+            hash_obj = hashlib.sha1(
+                text.encode('utf8'))  # if the text are the same, then the hash_code are also the same
+            hex_dig = hash_obj.hexdigest()
+            hashid[hex_dig] = _id
+        corpus = {}
+        rels = []
+        f = codecs.open(file_path, 'r', encoding='utf8')
+        for line in f:
+            line = line
+            line = line.strip()
+            label, t1, t2 = self.parse_line(line)
+            id1 = self.get_text_id_trec(hashid, t1)
+            id2 = self.get_text_id_trec(hashid, t2)
+            corpus[id1] = t1
+            corpus[id2] = t2
+            rels.append((label, id1, id2))
+        f.close()
+        return corpus, rels
+
     def run_with_one_corpus(self, file_path):
         hashid = {}
         corpus = {}
@@ -107,7 +142,7 @@ class Preparation(object):
         return corpus_q, corpus_d, rels
 
     def run_with_train_valid_test_corpus(self, train_file, valid_file, test_file):
-        '''
+        """
         Run with pre-splited train_file, valid_file, test_file
         The input format should be label \t text1 \t text2
         The query ids can't be duplicated. For the same query
@@ -118,7 +153,7 @@ class Preparation(object):
         :param valid_file: valid file
         :param test_file: test file
         :return: corpus, rels_train, rels_valid, rels_test
-        '''
+        """
         hashid = {}
         corpus = {}
         rels = []
@@ -150,6 +185,43 @@ class Preparation(object):
                     curQid += 1
                     id1 = 'Q' + str(curQid)
                     curQ = t1
+                corpus[id1] = t1
+                corpus[id2] = t2
+                rels.append((label, id1, id2))
+            f.close()
+        return corpus, rels_train, rels_valid, rels_test
+
+    def run_with_train_valid_test_corpus_trec(self, train_file, valid_file, test_file, corpus_file):
+        hashid = {}
+        f = codecs.open(corpus_file, 'r', encoding='utf8')
+        print("Getting TREC ids ...")
+        for line in tqdm(f):
+            _id = line.strip().split()[0]
+            text = line.strip()[len(_id):].strip()
+            hash_obj = hashlib.sha1(
+                text.encode('utf8'))  # if the text are the same, then the hash_code are also the same
+            hex_dig = hash_obj.hexdigest()
+            hashid[hex_dig] = _id
+        corpus = {}
+        rels = []
+        rels_train = []
+        rels_valid = []
+        rels_test = []
+        # merge corpus files, but return rels for train/valid/test seperately
+        for file_path in list([train_file, valid_file, test_file]):
+            if file_path == train_file:
+                rels = rels_train
+            elif file_path == valid_file:
+                rels = rels_valid
+            if file_path == test_file:
+                rels = rels_test
+            f = codecs.open(file_path, 'r', encoding='utf8')
+            for line in f:
+                line = line
+                line = line.strip()
+                label, t1, t2 = self.parse_line(line)
+                id2 = self.get_text_id_trec(hashid, t2)
+                id1 = self.get_text_id_trec(hashid, t1)
                 corpus[id1] = t1
                 corpus[id2] = t2
                 rels.append((label, id1, id2))
