@@ -14,8 +14,9 @@ class KNRM(BasicModel):
     def __init__(self, config):
         super(KNRM, self).__init__(config)
         self._name = 'KNRM'
-        self.check_list = [ 'text1_maxlen', 'kernel_num','sigma','exact_sigma',
+        self.check_list = [ 'text1_maxlen', 'kernel_num','sigma','exact_sigma', 'text1_attention', 'text2_attention',
                             'embed', 'embed_size', 'vocab_size']
+        self.initializer_gate = keras.initializers.RandomUniform(minval=-0.01, maxval=0.01, seed=11)  # attention init
         self.setup(config)
         if not self.check():
             raise TypeError('[KNRM] parameter check wrong')
@@ -44,6 +45,33 @@ class KNRM(BasicModel):
         show_layer_info('Embedding', q_embed)
         d_embed = embedding(doc)
         show_layer_info('Embedding', d_embed)
+
+        # ########## compute attention weights for the query words: better then mvlstm alone
+        if self.config["text1_attention"]:
+            q_w = Dense(1, kernel_initializer=self.initializer_gate, use_bias=False)(
+                q_embed)  # use_bias=False to simple combination
+            show_layer_info('Dense', q_w)
+            q_w = Lambda(lambda x: softmax(x, axis=1), output_shape=(self.config['text1_maxlen'],))(q_w)
+            show_layer_info('Lambda-softmax', q_w)
+            # ########## add attention weights for Q_words
+            q_w_layer = Lambda(lambda x: K.repeat_elements(q_w, rep=self.config['embed_size'], axis=2))(q_w)
+            show_layer_info('repeat', q_w_layer)
+            q_embed = Multiply()([q_w_layer, q_embed])
+            show_layer_info('Dot-qw', q_embed)
+        # ####################### attention text1
+
+        # ########## compute attention weights for the document words:
+        if self.config['text2_attention']:
+            d_w = Dense(1, kernel_initializer=self.initializer_gate, use_bias=False)(d_embed)
+            show_layer_info('Dense', d_w)
+            d_w = Lambda(lambda x: softmax(x, axis=1), output_shape=(self.config['text2_maxlen'],))(d_w)
+            show_layer_info('Lambda-softmax', d_w)
+            # ########## add attention weights for D_words
+            d_w_layer = Lambda(lambda x: K.repeat_elements(d_w, rep=self.config['embed_size'], axis=2))(d_w)
+            d_embed = Multiply()([d_w_layer, d_embed])
+            show_layer_info('Dot-qw', d_embed)
+        # ####################### attention text2
+
         mm = Dot(axes=[2, 2], normalize=True)([q_embed, d_embed])
         show_layer_info('Dot', mm)
 
