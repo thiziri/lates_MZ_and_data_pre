@@ -86,7 +86,7 @@ class A_MVLSTM(BasicModel):
             pos_w = Activation('softmax')(pos_w)
             pos_w = RepeatVector(self.config['hidden_size']*2)(pos_w)
             pos_w = Permute([2, 1])(pos_w)
-            q_rep = merge([q_rep, pos_w], mode='mul')
+            q_rep = Multiply()([q_rep, pos_w])  # merge([q_rep, pos_w], mode='mul')
 
         d_rep = Bidirectional(LSTM(self.config['hidden_size'], return_sequences=True, dropout=self.config['dropout_rate']))(d_embed)
         show_layer_info('Bidirectional-LSTM_d', d_rep)
@@ -101,7 +101,7 @@ class A_MVLSTM(BasicModel):
             pos_w = Activation('softmax')(pos_w)
             pos_w = RepeatVector(self.config['hidden_size']*2)(pos_w)
             pos_w = Permute([2, 1])(pos_w)
-            d_rep = merge([d_rep, pos_w], mode='mul')
+            d_rep = Multiply()([d_rep, pos_w])  # merge([d_rep, pos_w], mode='mul')  #
 
         cross = Match(match_type='dot')([q_rep, d_rep])
         show_layer_info('Match-dot', cross)

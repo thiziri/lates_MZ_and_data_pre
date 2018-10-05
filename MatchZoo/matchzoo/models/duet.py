@@ -10,6 +10,7 @@ from keras.optimizers import Adam
 from model import BasicModel
 import tensorflow as tf
 from utils.utility import *
+from keras.activations import softmax
 
 class DUET(BasicModel):
     def __init__(self, config):
@@ -19,9 +20,11 @@ class DUET(BasicModel):
                 'lm_kernel_count', 'lm_hidden_sizes',
                 'dm_kernel_count', 'dm_kernel_size',
                 'dm_q_hidden_size',  'dm_hidden_sizes',
-                'lm_dropout_rate', 'dm_dropout_rate'
+                'lm_dropout_rate', 'dm_dropout_rate',
+                'text1_attention', 'text2_attention'
                    ]
         self.embed_trainable = config['train_embed']
+        self.initializer_gate = keras.initializers.RandomUniform(minval=-0.01, maxval=0.01, seed=11)  # attention init
         self.setup(config)
         if not self.check():
             raise TypeError('[DUET] parameter check wrong')
@@ -68,6 +71,32 @@ class DUET(BasicModel):
         show_layer_info('Embedding', q_embed)
         d_embed = embedding(doc)
         show_layer_info('Embedding', d_embed)
+
+        # ########## compute attention weights for the query words: better then mvlstm alone
+        if self.config["text1_attention"]:
+            q_w = Dense(1, kernel_initializer=self.initializer_gate, use_bias=False)(
+                q_embed)  # use_bias=False to simple combination
+            show_layer_info('Dense', q_w)
+            q_w = Lambda(lambda x: softmax(x, axis=1), output_shape=(self.config['text1_maxlen'],))(q_w)
+            show_layer_info('Lambda-softmax', q_w)
+            # ########## add attention weights for Q_words
+            q_w_layer = Lambda(lambda x: K.repeat_elements(q_w, rep=self.config['embed_size'], axis=2))(q_w)
+            show_layer_info('repeat', q_w_layer)
+            q_embed = Multiply()([q_w_layer, q_embed])
+            show_layer_info('Dot-qw', q_embed)
+        # ####################### attention text1
+
+        # ########## compute attention weights for the document words:
+        if self.config['text2_attention']:
+            d_w = Dense(1, kernel_initializer=self.initializer_gate, use_bias=False)(d_embed)
+            show_layer_info('Dense', d_w)
+            d_w = Lambda(lambda x: softmax(x, axis=1), output_shape=(self.config['text2_maxlen'],))(d_w)
+            show_layer_info('Lambda-softmax', d_w)
+            # ########## add attention weights for D_words
+            d_w_layer = Lambda(lambda x: K.repeat_elements(d_w, rep=self.config['embed_size'], axis=2))(d_w)
+            d_embed = Multiply()([d_w_layer, d_embed])
+            show_layer_info('Dot-qw', d_embed)
+        # ####################### attention text2
 
         lm_xor = Lambda(xor_match)([query, doc])
         show_layer_info('XOR', lm_xor)
