@@ -195,13 +195,20 @@ class Preparation(object):
         hashid = {}
         f = codecs.open(corpus_file, 'r', encoding='utf8')
         print("Getting TREC ids ...")
+        i = 0
         for line in tqdm(f):
             _id = line.strip().split()[0]
             text = line.strip()[len(_id):].strip()
-            hash_obj = hashlib.sha1(
-                text.encode('utf8'))  # if the text are the same, then the hash_code are also the same
+            hash_obj = hashlib.sha1(text.encode('utf8'))  # if the text are the same, then the hash_code are also the same
             hex_dig = hash_obj.hexdigest()
-            hashid[hex_dig] = _id
+            if hex_dig not in hashid:
+                hashid[hex_dig] = _id
+            elif hashid[hex_dig] != _id:  # another document with same content, may be different relevance, should take it
+                i += 1
+                text = text + str(i)
+                hash_obj = hashlib.sha1(text.encode('utf8'))
+                hex_dig = hash_obj.hexdigest()
+                hashid[hex_dig] = _id
         corpus = {}
         rels = []
         rels_train = []

@@ -1,6 +1,7 @@
 # /bin/python2.7 and /bin/python3.5
 import sys
 from os.path import join
+import numpy as np
 sys.path.append('../../matchzoo/inputs')
 sys.path.append('../../matchzoo/utils')
 from preprocess import *
@@ -19,7 +20,7 @@ if __name__ == '__main__':
     # note here word embeddings have been normalized to speed up calculation
     embed_dict = read_embedding(filename=embedfile)
     print('after read embedding ...')
-    _PAD_ = len(embed_dict) # for word without wordembeeding, assign an random embedding
+    _PAD_ = len(embed_dict)  # for word without wordembeeding, assign an random embedding
     embed_dict[_PAD_] = np.zeros((embed_size, ), dtype=np.float32)
     embed = np.float32(np.random.uniform(-0.2, 0.2, [_PAD_+1, embed_size]))
     embed = convert_embed_2_numpy(embed_dict, embed=embed)

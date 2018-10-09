@@ -1,0 +1,99 @@
+INFO:root:Config: {
+  "train_queries": "/home/thiziri/Documents/DOCTORAT/COLLECTION/TOPICS/AP88",
+  "relevance_judgements": "/home/thiziri/Documents/DOCTORAT/COLLECTION/QRELS/extractedQrels/qrels251_300AP88",
+  "output_folder": "/home/thiziri/Documents/DOCTORAT/SOFT/MatchZoo_latest1/data/AP88/passageRetrieval_qrels",
+  "indexed_data": "/home/thiziri/Documents/DOCTORAT/COLLECTION/Indri_index/AP88",
+  "retrieved_passages": "/home/thiziri/Documents/DOCTORAT/TESTS/RUNS/INDRI_runs/passages/AP88",
+  "test_queries": "/home/thiziri/Documents/DOCTORAT/COLLECTION/TOPICS/AP88",
+  "split_query_folders": "/home/thiziri/Documents/DOCTORAT/COLLECTION/split_data/by_queries/AP88/5_crossValid",
+  "test_queries_format": "",
+  "train_queries_format": "trec"
+}
+INFO:root:Config: {
+  "retrieved_passages": "/home/thiziri/Documents/DOCTORAT/TESTS/RUNS/INDRI_runs/passages/AP88",
+  "train_queries_format": "trec",
+  "output_folder": "/home/thiziri/Documents/DOCTORAT/SOFT/MatchZoo_latest1/data/AP88/passageRetrieval_qrels",
+  "indexed_data": "/home/thiziri/Documents/DOCTORAT/COLLECTION/Indri_index/AP88",
+  "train_queries": "/home/thiziri/Documents/DOCTORAT/COLLECTION/TOPICS/AP88",
+  "test_queries_format": "",
+  "relevance_judgements": "/home/thiziri/Documents/DOCTORAT/COLLECTION/QRELS/extractedQrels/qrels251_300AP88",
+  "test_queries": "/home/thiziri/Documents/DOCTORAT/COLLECTION/TOPICS/AP88",
+  "split_query_folders": "/home/thiziri/Documents/DOCTORAT/COLLECTION/split_data/by_queries/AP88/5_crossValid"
+}
+INFO:root:Config: {
+  "test_queries": "/home/thiziri/Documents/DOCTORAT/COLLECTION/TOPICS/AP88",
+  "relevance_judgements": "/home/thiziri/Documents/DOCTORAT/COLLECTION/QRELS/extractedQrels/qrels251_300AP88",
+  "retrieved_passages": "/home/thiziri/Documents/DOCTORAT/TESTS/RUNS/INDRI_runs/passages/AP88",
+  "test_queries_format": "",
+  "split_query_folders": "/home/thiziri/Documents/DOCTORAT/COLLECTION/split_data/by_queries/AP88/5_crossValid",
+  "train_queries": "/home/thiziri/Documents/DOCTORAT/COLLECTION/TOPICS/AP88",
+  "train_queries_format": "trec",
+  "output_folder": "/home/thiziri/Documents/DOCTORAT/SOFT/MatchZoo_latest1/data/AP88/passageRetrieval_qrels",
+  "indexed_data": "/home/thiziri/Documents/DOCTORAT/COLLECTION/Indri_index/AP88"
+}
+INFO:root:Config: {
+  "test_queries_format": "",
+  "train_queries": "/home/thiziri/Documents/DOCTORAT/COLLECTION/TOPICS/AP88",
+  "test_queries": "/home/thiziri/Documents/DOCTORAT/COLLECTION/TOPICS/AP88",
+  "retrieved_passages": "/home/thiziri/Documents/DOCTORAT/TESTS/RUNS/INDRI_runs/passages/AP88",
+  "output_folder": "/home/thiziri/Documents/DOCTORAT/SOFT/MatchZoo_latest1/data/AP88/passageRetrieval_qrels",
+  "relevance_judgements": "/home/thiziri/Documents/DOCTORAT/COLLECTION/QRELS/extractedQrels/qrels251_300AP88",
+  "train_queries_format": "trec",
+  "split_query_folders": "/home/thiziri/Documents/DOCTORAT/COLLECTION/split_data/by_queries/AP88/5_crossValid",
+  "indexed_data": "/home/thiziri/Documents/DOCTORAT/COLLECTION/Indri_index/AP88"
+}
+INFO:root:Config: {
+  "retrieved_passages": "/home/thiziri/Documents/DOCTORAT/TESTS/RUNS/INDRI_runs/passages/AP88",
+  "test_queries": "/home/thiziri/Documents/DOCTORAT/COLLECTION/TOPICS/AP88",
+  "relevance_judgements": "/home/thiziri/Documents/DOCTORAT/COLLECTION/QRELS/extractedQrels/qrels251_300AP88",
+  "train_queries": "/home/thiziri/Documents/DOCTORAT/COLLECTION/TOPICS/AP88",
+  "train_queries_format": "trec",
+  "split_query_folders": "/home/thiziri/Documents/DOCTORAT/COLLECTION/split_data/by_queries/AP88/5_crossValid",
+  "test_queries_format": "",
+  "indexed_data": "/home/thiziri/Documents/DOCTORAT/COLLECTION/Indri_index/AP88",
+  "output_folder": "/home/thiziri/Documents/DOCTORAT/SOFT/MatchZoo_latest1/data/AP88/passageRetrieval_qrels"
+}
+INFO:root:Config: {
+  "relevance_judgements": "/home/thiziri/Documents/DOCTORAT/COLLECTION/QRELS/extractedQrels/qrels251_300AP88",
+  "train_queries": "/home/thiziri/Documents/DOCTORAT/COLLECTION/TOPICS/AP88",
+  "output_folder": "/home/thiziri/Documents/DOCTORAT/SOFT/MatchZoo_latest1/data/AP88/passageRetrieval_qrels",
+  "test_queries": "/home/thiziri/Documents/DOCTORAT/COLLECTION/TOPICS/AP88",
+  "test_queries_format": "",
+  "split_query_folders": "/home/thiziri/Documents/DOCTORAT/COLLECTION/split_data/by_queries/AP88/5_crossValid",
+  "indexed_data": "/home/thiziri/Documents/DOCTORAT/COLLECTION/Indri_index/AP88",
+  "train_queries_format": "trec",
+  "retrieved_passages": "/home/thiziri/Documents/DOCTORAT/TESTS/RUNS/INDRI_runs/passages/AP88"
+}
+INFO:root:Config: {
+  "indexed_data": "/home/thiziri/Documents/DOCTORAT/COLLECTION/Indri_index/AP88",
+  "train_queries": "/home/thiziri/Documents/DOCTORAT/COLLECTION/TOPICS/AP88",
+  "test_queries_format": "",
+  "split_query_folders": "/home/thiziri/Documents/DOCTORAT/COLLECTION/split_data/by_queries/AP88/5_crossValid",
+  "retrieved_passages": "/home/thiziri/Documents/DOCTORAT/TESTS/RUNS/INDRI_runs/passages/AP88",
+  "output_folder": "/home/thiziri/Documents/DOCTORAT/SOFT/MatchZoo_latest1/data/AP88/passageRetrieval_qrels",
+  "test_queries": "/home/thiziri/Documents/DOCTORAT/COLLECTION/TOPICS/AP88",
+  "relevance_judgements": "/home/thiziri/Documents/DOCTORAT/COLLECTION/QRELS/extractedQrels/qrels251_300AP88",
+  "train_queries_format": "trec"
+}
+INFO:root:Config: {
+  "output_folder": "/home/thiziri/Documents/DOCTORAT/SOFT/MatchZoo_latest1/data/AP88/passageRetrieval_qrels",
+  "relevance_judgements": "/home/thiziri/Documents/DOCTORAT/COLLECTION/QRELS/extractedQrels/qrels251_300AP88",
+  "test_queries_format": "",
+  "retrieved_passages": "/home/thiziri/Documents/DOCTORAT/TESTS/RUNS/INDRI_runs/passages/AP88",
+  "train_queries": "/home/thiziri/Documents/DOCTORAT/COLLECTION/TOPICS/AP88",
+  "split_query_folders": "/home/thiziri/Documents/DOCTORAT/COLLECTION/split_data/by_queries/AP88/5_crossValid",
+  "test_queries": "/home/thiziri/Documents/DOCTORAT/COLLECTION/TOPICS/AP88",
+  "indexed_data": "/home/thiziri/Documents/DOCTORAT/COLLECTION/Indri_index/AP88",
+  "train_queries_format": "trec"
+}
+INFO:root:Config: {
+  "retrieved_passages": "/home/thiziri/Documents/DOCTORAT/TESTS/RUNS/INDRI_runs/passages/AP88",
+  "split_query_folders": "/home/thiziri/Documents/DOCTORAT/COLLECTION/split_data/by_queries/AP88/5_crossValid",
+  "output_folder": "/home/thiziri/Documents/DOCTORAT/SOFT/MatchZoo_latest1/data/AP88/passageRetrieval_qrels",
+  "test_queries_format": "",
+  "train_queries_format": "trec",
+  "indexed_data": "/home/thiziri/Documents/DOCTORAT/COLLECTION/Indri_index/AP88",
+  "relevance_judgements": "/home/thiziri/Documents/DOCTORAT/COLLECTION/QRELS/extractedQrels/qrels251_300AP88",
+  "test_queries": "/home/thiziri/Documents/DOCTORAT/COLLECTION/TOPICS/AP88",
+  "train_queries": "/home/thiziri/Documents/DOCTORAT/COLLECTION/TOPICS/AP88"
+}
