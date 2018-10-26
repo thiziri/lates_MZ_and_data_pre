@@ -92,6 +92,7 @@ class A_MVLSTM_CONV(BasicModel):
         cross = Match(match_type='dot')([q_rep, d_rep])
         show_layer_info('Match-dot', cross)
 
+        # ####################### convolutions
         cov1 = Conv2D(self.config['filters'], self.config['kernel_size'], activation='relu', name="conv1",
                       padding='same')(cross)
         cov1 = BatchNormalization()(cov1)
@@ -106,6 +107,7 @@ class A_MVLSTM_CONV(BasicModel):
         cov2 = BatchNormalization()(cov2)
         cross = Dropout(self.config["dropout_rate"])(cov2)
         show_layer_info('Conv2', cov2)
+        # ###################### convolutions
 
         cross_reshape = Reshape((-1, ))(cross)
         show_layer_info('Reshape', cross_reshape)
