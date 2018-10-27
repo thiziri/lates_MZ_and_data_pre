@@ -482,3 +482,16 @@ def get_all_phrases(target_word, tar_passage, left_margin=10, right_margin=10):
 
     # join the sentences for each of the target phrase and return it
     return [' '.join([x + ' ' for x in con_sub]) for con_sub in concordance_txt]
+
+
+def get_text_of_a_passage(doc_id, index, id2token, passage):
+    """
+    Get the text corresponding to a retrieved passage from indri
+    :param doc_id: int
+    :param id2token: list
+    :param passage: list
+    :return: string
+    """
+    doc = [x for x in index.document(doc_id)[1]]
+    passage_txt = " ".join([id2token[x] for x in doc[passage[0]:passage[1]] if x != 0])
+    return passage_txt
