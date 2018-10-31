@@ -53,7 +53,7 @@ class A_CCNNM(BasicModel):
         cross = Permute((2, 1))(cross)  # to apply the convolution on the document axis and get context weights
         show_layer_info('Permute', cross)  # (None, int, int) == (batch, doc_len, query_len)
 
-        contxt = Conv1D(1, self.config['context_len'],
+        contxt = Conv1D(self.config['context_embed'], self.config['context_len'],
                        strides=self.config['context_len'],  # we need to get as output single vector of context weights
                        activation='relu',
                        name="conv",)(cross)
@@ -66,7 +66,12 @@ class A_CCNNM(BasicModel):
         # make_flat = Lambda(lambda x: K.batch_flatten(x))  # make it flat to compute att weights
         contxt = Multiply()([contxt, attention])
         show_layer_info('Dense', cross)
-        contxt = Reshape((self.config['context_num'], ))(contxt)
+        if self.config['context_embed'] > 1:  # compute context importance weights
+            contxt = Bidirectional(LSTM(self.config['context_num'], return_sequences=False))(contxt)
+            show_layer_info('biLSTM', contxt)
+        else:
+            contxt = Reshape((self.config['context_num'], ))(contxt)
+            show_layer_info('reshape', contxt)
 
         if self.config['target_mode'] == 'classification':
             out_ = Dense(2, activation='softmax')(contxt)
