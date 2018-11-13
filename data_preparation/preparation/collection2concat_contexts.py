@@ -82,15 +82,17 @@ if __name__ == '__main__':
                     else:
                         unique_documents[doc_id] = [passage_txt]  # start new document
                 # save results
+                num = 0
                 for res in unique_documents:
+                    num += 1
                     new_doc_id = res + "_" + q_id  # because we can have diff passages from same doc to diff queries
                     doc_txt = " ".join(unique_documents[res])
-                    out_t.write(new_doc_id + ' ' + doc_txt + '\n')  # write corpus the concatenated passages
+                    out_t.write(new_doc_id + ' ' + doc_txt + ' ' + q_id + '_' + str(num) + '\n')  # write corpus the concatenated passages
                     try:
                         rel = qrels[(q_id, res)]  # get relevance of the document
                     except:
                         rel = 0
-                    corpus_file.write(str(rel)+'\t'+queries_text[q_id]+'\t'+doc_txt+'\n')  # write the train corpus
+                    corpus_file.write(str(rel)+'\t'+queries_text[q_id]+'\t'+doc_txt + ' ' + q_id + '_' + str(num)+'\n')  # write the train corpus
                 # concatenated passages
             # phase_queries: train, test or valid queries
         # fold

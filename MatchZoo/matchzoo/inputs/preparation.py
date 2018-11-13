@@ -37,8 +37,8 @@ class Preparation(object):
         hex_dig = hash_obj.hexdigest()
         try:
             return hashid[hex_dig]
-        except Exception as e:
-            print(e + "\nInvalid text input : " + text)
+        except ValueError as e:
+            raise(e, "\nInvalid text input : " + text)
 
     def parse_line(self, line, delimiter='\t'):
         subs = line.split(delimiter)
