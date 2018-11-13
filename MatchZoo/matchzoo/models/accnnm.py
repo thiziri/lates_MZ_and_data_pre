@@ -15,8 +15,8 @@ class A_CCNNM(BasicModel):
     def __init__(self, config):
         super(A_CCNNM, self).__init__(config)
         self.__name = 'A_CCNNM'
-        self.check_list = ['text1_maxlen', 'embed', 'embed_size', 'train_embed',  'vocab_size',
-                           "kernel_size", "context_len", "context_num"]
+        self.check_list = ['text1_maxlen', 'text2_maxlen', 'embed', 'embed_size', 'train_embed',  'vocab_size',
+                           "context_embed", "context_len", "context_num", "conv_dropout_rate", "pool_size"]
         self.embed_trainable = config['train_embed']
         self.setup(config)
         self.initializer_gate = keras.initializers.RandomUniform(minval=-0.01, maxval=0.01, seed=11)
@@ -27,17 +27,14 @@ class A_CCNNM(BasicModel):
     def setup(self, config):
         if not isinstance(config, dict):
             raise TypeError('parameter config should be dict:', config)
-
-        self.set_default('filters', 10)
-        self.set_default('kernel_size', 3)
         self.config.update(config)
 
     def build(self):
         # use a convolution layer of size of the context
         query = Input(name='query', shape=(self.config['text1_maxlen'],))
-        show_layer_info('Input', query)
-        doc = Input(name='doc', shape=(self.config['context_num']*self.config['context_len'],))
-        show_layer_info('Input', doc)
+        show_layer_info('query', query)
+        doc = Input(name='doc', shape=(self.config['text2_maxlen'],))
+        show_layer_info('doc', doc)
 
         embedding = Embedding(self.config['vocab_size'], self.config['embed_size'], weights=[self.config['embed']],
                               trainable = self.embed_trainable)
@@ -57,20 +54,32 @@ class A_CCNNM(BasicModel):
                        strides=self.config['context_len'],  # we need to get as output single vector of context weights
                        activation='relu',
                        name="conv",)(cross)
+        contxt = BatchNormalization()(contxt)
+        contxt = Dropout(self.config['conv_dropout_rate'])(contxt)
         show_layer_info('Conv1D', contxt)
 
         # ################################### attention weights
-        attention = Dense(1)(contxt)
+        attention = Dense(1, use_bias=False)(contxt)
         attention = Activation('softmax')(attention)
+        show_layer_info('Attention', attention)
 
         # make_flat = Lambda(lambda x: K.batch_flatten(x))  # make it flat to compute att weights
         contxt = Multiply()([contxt, attention])
-        show_layer_info('Dense', cross)
+        show_layer_info('Multiply', contxt)
+
+        # select most important:
+        important_context = MaxPooling1D(pool_size=self.config["pool_size"], strides=self.config["pool_size"])
+        contxt = important_context(contxt)
+        show_layer_info('Max_pool', contxt)
+
         if self.config['context_embed'] > 1:  # compute context importance weights
             contxt = Bidirectional(LSTM(self.config['context_num'], return_sequences=False))(contxt)
+            contxt = BatchNormalization()(contxt)
+            contxt = Dropout(self.config['lstm_dropout_rate'])(contxt)
             show_layer_info('biLSTM', contxt)
         else:
-            contxt = Reshape((self.config['context_num'], ))(contxt)
+            # contxt = Reshape((int((int(self.config['text2_maxlen']/self.config['context_len'])/self.config["pool_size"])), ))(contxt)  # (text_len/context_len)/pool_size to get correct shape
+            contxt = Reshape((int(contxt.shape[1]),))(contxt)
             show_layer_info('reshape', contxt)
 
         if self.config['target_mode'] == 'classification':
@@ -80,5 +89,5 @@ class A_CCNNM(BasicModel):
         show_layer_info('Dense', out_)
 
         model = Model(inputs=[query, doc], outputs=out_)
-        plot_model(model, to_file='../accnnm.png', show_shapes=True, show_layer_names=True)
+        plot_model(model, to_file='../accnnm_ec_'+str(self.config['context_embed'])+".png", show_shapes=True, show_layer_names=True)
         return model
