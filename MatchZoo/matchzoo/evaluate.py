@@ -17,9 +17,6 @@ def mz_eval(mz_output_file):
     mz_output_file : string
         path to MatchZoo output TREC format file
 
-    file_to_write : string
-        where the results of the evaluation should be stored
-        ignore if it is None
     """
 
     with open(mz_output_file) as f:

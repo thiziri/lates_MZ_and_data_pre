@@ -130,6 +130,8 @@ def predict(config, layer_):
         res_scores = {}
         for input_data, y_true in genfun:
             y_pred = model.predict(input_data, batch_size=len(y_true) )
+            # add here model.layers["..."].get_weights
+            # doc: https://keras.io/layers/about-keras-layers/
 
             """
             if issubclass(type(generator), inputs.list_generator.ListBasicGenerator):

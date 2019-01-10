@@ -4,7 +4,7 @@ import pyndri
 import sys
 import os
 
-sys.path.append('../for_matchZoo/utils')
+sys.path.append('../utils')
 
 from tools4text import chunkIt, extractTopics, extract_trec_million_queries
 from tqdm import tqdm
@@ -58,7 +58,8 @@ if __name__ == '__main__':
         print("Saving folds ...")
         for i in tqdm(folds):
                 f = join(config["output_folder"], "fold_" + str(i))
-                os.mkdir(f)
+                if not os.path.exists(f):
+                    os.mkdir(f)
                 for group in folds[i]:
                     with open(join(f, group+"_.txt"), "w") as q_out:
                         q_out.write("\n".join([str(q) for q in folds[i][group]]))
