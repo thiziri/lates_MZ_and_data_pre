@@ -66,7 +66,7 @@ if __name__ == '__main__':
             phase_queries = open(join(config["split_query_folders"], join(fold, phase))).read().split('\n')  # queries list
             for q_id in phase_queries:
                 out_t.write(q_id+' '+queries_text[q_id]+'\n')  # write the trec corpus
-                passages = open(join(config["retrieved_passages"], q_id)).readlines()[:config["top_k"]]  # top passages
+                passages = open(join(config["retrieved_passages"], q_id)).readlines()[:config["top_k"]]  # top k passages
                 # get passages text:
                 unique_documents = {}
                 last_doc_id = ''
