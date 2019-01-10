@@ -1,0 +1,1471 @@
+INFO:root:Config: {
+  "sequence_length": 5,
+  "passage_length": 5,
+  "indri": "/home/thiziri/Documents/DOCTORAT/SOFT/INDRI/indri-5.11",
+  "qrels_MQ": "/home/thiziri/Documents/DOCTORAT/COLLECTION/trec_million_queries/GOV2/judgment/filtred_1rel_mean",
+  "stopwords": "false",
+  "count": 1000,
+  "output": "/home/thiziri/Documents/DOCTORAT/TESTS/RUNS/INDRI_runs/passages/AP88_MQ",
+  "index": "/home/thiziri/Documents/DOCTORAT/COLLECTION/Indri_index/AP88",
+  "queries": "/home/thiziri/Documents/DOCTORAT/COLLECTION/trec_million_queries/MQ_queries/07-million-query-topics.1-10000.gz",
+  "stemmer": "krovetz"
+}
+INFO:root:Pre-process queries 1455 queries...
+INFO:root:Duplicated: 7136	franklin roosevelt new deal 2
+INFO:root:Duplicated: 210	get us passport 2
+INFO:root:Retrieving ...
+INFO:root:7611	year hurricane hit new york
+INFO:root:9762	riding mower
+INFO:root:3082	katrina housing
+INFO:root:2466	arkansas dept health human service
+INFO:root:7566	bomb making
+INFO:root:169	hurricain prediction season 2006
+INFO:root:1095	cascadia tsunami
+INFO:root:1619	ocean creature
+INFO:root:693	cancer nutrition
+INFO:root:1535	katrina housing assistance san antonio
+INFO:root:6218	acid rain problem rocky mountain
+INFO:root:1073	iran contra
+INFO:root:4438	schedule capital gain loss
+INFO:root:8935	portugal community united states
+INFO:root:8566	camel north america
+INFO:root:4330	franklin roosevelt new deal
+INFO:root:5475	usaa membership benefit
+INFO:root:8842	subaru forester
+INFO:root:5651	gastroesophageal reflux disease gerd
+INFO:root:6206	steroid abuse morbidity
+INFO:root:217	prostate cancer hospice
+INFO:root:1741	vaginal bacterial disease
+INFO:root:6338	obese public service ads
+INFO:root:8592	national penpal organization
+INFO:root:8946	needle biopsy lung expect
+INFO:root:5629	state flower state florida
+INFO:root:867	manzanar internment camp
+INFO:root:1717	padre island national seashore park
+INFO:root:6272	city cambridge massachusetts
+INFO:root:752	gps measure area
+INFO:root:7571	book prescription drug
+INFO:root:3571	town truro
+INFO:root:2909	intelligence community job
+INFO:root:9394	prevent alcoholism
+INFO:root:4572	portrait mr mrs george w bush
+INFO:root:1394	dinosaur bone
+INFO:root:5720	huntington disorder
+INFO:root:1709	corporate name registration
+INFO:root:5044	reverse mortgage
+INFO:root:9198	varicella newborn
+INFO:root:2270	fact sun
+INFO:root:1314	klinefelter syndrome
+INFO:root:6222	volcano eruption global temperature
+INFO:root:7652	map lake guntersville
+INFO:root:3598	dog licence va
+INFO:root:3718	image war plane gun
+INFO:root:4425	savings bonds government
+INFO:root:2147	mild left ventricular dysfunction prognosis
+INFO:root:9639	bear yosemite
+INFO:root:7234	surface tension
+INFO:root:8588	auto broker license
+INFO:root:1851	america consulate caracas venezuela
+INFO:root:6167	pregnant endometriosi surgery
+INFO:root:491	schwinn
+INFO:root:9589	va hospital prescott az
+INFO:root:9958	impact plate tectonic
+INFO:root:6539	flu shot
+INFO:root:279	tornado work
+INFO:root:4607	hormone therapy symptom
+INFO:root:7318	manila philippines
+INFO:root:9384	birth control pill cramps
+INFO:root:315	daniel field
+INFO:root:1193	irs refund information
+INFO:root:8092	inmate state prison
+INFO:root:3013	weather record
+INFO:root:5019	homeowner insurance
+INFO:root:8554	age medicare eligible
+INFO:root:3953	tsa management directive
+INFO:root:8045	electronic technician employment
+INFO:root:9891	ace inhibit indigestion
+INFO:root:4553	health issue china
+INFO:root:9714	omega 3
+INFO:root:5392	n p
+INFO:root:8710	hydrate therapy cat
+INFO:root:4563	zovirax counter drug
+INFO:root:2174	clean bird feeder
+INFO:root:7193	people finder
+INFO:root:5738	history nasa
+INFO:root:6201	venomous mammal
+INFO:root:8541	currency 10
+INFO:root:6730	senator virginia
+INFO:root:8246	road conditions hwy 5
+INFO:root:659	printable map nc county
+INFO:root:7335	presidential election 1960
+INFO:root:2055	domestic violence fund
+INFO:root:3497	mining cascade mountain
+INFO:root:6919	little pee dee river
+INFO:root:2399	central lumpectomy
+INFO:root:9149	shortnin bread song
+INFO:root:1787	kazmark
+INFO:root:4716	needle camp
+INFO:root:8475	northern virginia gang task force
+INFO:root:5880	learn usa map
+INFO:root:8906	ethics human genome
+INFO:root:7544	spevack vs klein 385 us 551 1956
+INFO:root:3212	percentage population 70 years old
+INFO:root:7180	extreme tired symptom low blood sugar
+INFO:root:3205	psychological evaluate
+INFO:root:8218	marfan syndrome infant
+INFO:root:2141	surf perch fishing gray harbor county
+INFO:root:1041	internal revenue code section 355
+INFO:root:6100	piel gniarka
+INFO:root:436	dmv driving written test question
+INFO:root:1910	clean bad credit
+INFO:root:4800	small increase calcium blood
+INFO:root:6486	75th precinct
+INFO:root:3186	reservation oceano dune
+INFO:root:2967	erection problem
+INFO:root:9308	miami dade jail inmate
+INFO:root:7903	endanger brown pelican
+INFO:root:9740	people family history diabetes
+INFO:root:4475	mountain pass weather washington state
+INFO:root:5132	national monument washington dc
+INFO:root:9021	commission corps
+INFO:root:134	usg strategic mineral map
+INFO:root:6110	venture capital works
+INFO:root:5863	san juan airport diagram
+INFO:root:5773	bright comet visible us every 76 years
+INFO:root:8850	federal sick leave excuse
+INFO:root:5734	photo native america indian
+INFO:root:3411	measure distance space
+INFO:root:5568	california nevada earthquake
+INFO:root:6285	revolutionary war periods weapon
+INFO:root:9629	security officer training
+INFO:root:3852	diamond smuggle
+INFO:root:6888	control study wine affect heart
+INFO:root:2753	symptom chronic alcoholism
+INFO:root:5126	carter cave ky
+INFO:root:2448	statistics race poverty
+INFO:root:5419	siguatepeque
+INFO:root:6551	gemini 9
+INFO:root:5989	failure file income tax
+INFO:root:9571	diabetic diet exchange list
+INFO:root:8164	st kitt
+INFO:root:3380	2007 tax bracket federal
+INFO:root:1002	iran terrorism
+INFO:root:3144	1998 honda civic gas mileage
+INFO:root:5559	member rhe lewis clark expedition
+INFO:root:5596	tapeworm dogs
+INFO:root:3481	lupu diet
+INFO:root:4150	info alexander hamilton
+INFO:root:8653	colon irritable
+INFO:root:1471	federal school lunch program
+INFO:root:7462	federal fire prevention control act 1974 federal fire act
+INFO:root:2177	per diem rate orange county
+INFO:root:1403	information mount rushmore
+INFO:root:813	employee scranton police department
+INFO:root:8709	james river settlement 1609
+INFO:root:3814	hearing loss diabetes
+INFO:root:9640	cow taxonomy
+INFO:root:3972	tax exempt transportation bonds
+INFO:root:8013	yellow throat bird
+INFO:root:8623	post surgical depression
+INFO:root:859	mental disorder viewpoint
+INFO:root:9768	butcher job
+INFO:root:4398	egypt foreign aid
+INFO:root:7845	crater lake np
+INFO:root:3019	activate charcoal strip
+INFO:root:192	nichola donofrio ibm
+INFO:root:3364	sugarcreek livestock auction
+INFO:root:59	oklahoma congressional offices
+INFO:root:8754	star spangle banner
+INFO:root:3721	evap system simulator
+INFO:root:8995	cutaneous asthenia
+INFO:root:7036	timeshare resale
+INFO:root:1863	tin whiskers
+INFO:root:6429	opiate sleep stage
+INFO:root:2098	online bidding
+INFO:root:7697	wyoming airport
+INFO:root:4009	cardiac rehab ot
+INFO:root:3689	millersylvania state park
+INFO:root:153	breast implant fatigue
+INFO:root:7136	franklin roosevelt new deal 2
+INFO:root:3720	ephedra huang death
+INFO:root:7461	lightning work
+INFO:root:810	cigarette iowa
+INFO:root:8283	erikson psychosocial stage inventory
+INFO:root:6766	district columbia court house
+INFO:root:326	space heater
+INFO:root:5833	address us embassy thailand
+INFO:root:3025	shortnose sturgeon
+INFO:root:1592	trader joe
+INFO:root:787	women own small business
+INFO:root:2595	symptom heart murmur
+INFO:root:5744	war 1898
+INFO:root:7492	gold mining law
+INFO:root:2441	heart fraction measurement
+INFO:root:5316	poplar hybrid
+INFO:root:205	fentanyl electro convulsive therapy
+INFO:root:3565	sepsis cause abscess tooth
+INFO:root:4129	food service south pole antarctica
+INFO:root:344	doxorubicin
+INFO:root:8076	las vega mayor contact
+INFO:root:334	valley fever cat
+INFO:root:7049	handwriting recognition
+INFO:root:359	symptom multiple sclerosis
+INFO:root:4855	jacksonville fl farmer market
+INFO:root:6705	carbapenem
+INFO:root:476	nih adhd
+INFO:root:8524	norfolk fire department
+INFO:root:3753	industrial command ammunition program
+INFO:root:6587	clark county wic
+INFO:root:8324	vitamin b12 excretion
+INFO:root:3680	current breast cancer trial
+INFO:root:3394	car rental job ca
+INFO:root:8683	denture articulate
+INFO:root:8886	bankruptcy fraud penalty
+INFO:root:7746	email address white house president
+INFO:root:6011	city san antonio human resource department
+INFO:root:4039	brown discharge second trimester
+INFO:root:6169	ketamine infusion
+INFO:root:7092	san francisco earthquake epicenter
+INFO:root:5654	hovenweep national park
+INFO:root:2010	role echocardiography electrophysiology
+INFO:root:971	columbia river gorge
+INFO:root:9615	bank account freeze due unpaid child support virginia
+INFO:root:310	pyramid scheme
+INFO:root:6224	periodic table
+INFO:root:1170	motorcycle test new jersey
+INFO:root:1160	picture heavenly stars
+INFO:root:8370	quarter collect
+INFO:root:353	tree ring one growth
+INFO:root:7888	weather norman
+INFO:root:6212	ncep cholesterol guidelines
+INFO:root:7586	interest rate savings inflation
+INFO:root:3392	saul perlmutter
+INFO:root:2649	sea level key west fl
+INFO:root:573	interleukin 6
+INFO:root:7248	nursing program us night school
+INFO:root:9482	social security office
+INFO:root:2150	tony truglia
+INFO:root:3221	uncommon hypoglycemia
+INFO:root:6450	cia director
+INFO:root:7915	map zambia africa
+INFO:root:176	south carolina major product
+INFO:root:1191	barney frank biography
+INFO:root:2190	much electrician make hour
+INFO:root:8430	us repharold rogers
+INFO:root:5829	list name foreign exchange student placement agency
+INFO:root:9904	ky licence plate
+INFO:root:3618	initial sound pictures
+INFO:root:7889	water freeze temperature
+INFO:root:8642	religious organization job
+INFO:root:2027	vegetable plant light dark moon
+INFO:root:7935	swallow hair
+INFO:root:6122	pecan weevil control
+INFO:root:1531	airline overbooke
+INFO:root:4765	zimbabwe military
+INFO:root:1666	country africa smallest population
+INFO:root:4766	squirrel control protection
+INFO:root:2364	doomsday cult
+INFO:root:4007	lunken
+INFO:root:827	hiv associate adipose redistribute syndrome
+INFO:root:3191	repair ceiling crack
+INFO:root:6462	remington fireball
+INFO:root:1512	radiation protection eye glasses
+INFO:root:2493	myasthenic crisis
+INFO:root:6235	day dream believer
+INFO:root:4401	diabetic tip emergency
+INFO:root:3802	philadelphia low income apartments
+INFO:root:7176	sea level
+INFO:root:2964	hobart indiana court
+INFO:root:1904	hebron ct maple festival
+INFO:root:1330	gs 7 pay scale
+INFO:root:2783	help child read
+INFO:root:1079	coumadin side effects skin rash
+INFO:root:3637	congenital amblyopia
+INFO:root:2933	bald cypress flower
+INFO:root:6689	tolmie state park washington
+INFO:root:6727	cat family
+INFO:root:5173	daily nutrition calorie fat
+INFO:root:5134	information spleen
+INFO:root:4237	use multivariate technique
+INFO:root:3924	divorce united states
+INFO:root:3060	unpaid parking ticket
+INFO:root:8195	scholarship contest
+INFO:root:5907	cardinal bird
+INFO:root:227	women rights 1840
+INFO:root:244	crohn disease
+INFO:root:7665	pandemic
+INFO:root:8583	educational problem us
+INFO:root:6729	rn license wisconsin conviction
+INFO:root:8897	ksc 45th wing
+INFO:root:4931	novel study great depression
+INFO:root:3728	san diego pacific beach pier
+INFO:root:5950	los angeles cal weather
+INFO:root:3472	treasury inflation
+INFO:root:1674	lora larkin
+INFO:root:2301	decidous forest
+INFO:root:9680	operation blessing
+INFO:root:1866	bipolar disease adolescent
+INFO:root:4659	cause gastric ulcer
+INFO:root:1921	abdominal aortic stenosi
+INFO:root:7029	395 highway
+INFO:root:1105	hurricane preparation
+INFO:root:44	sarcoma ankle
+INFO:root:7111	total knee replacement surgery
+INFO:root:6773	2004 statistics std united states
+INFO:root:9602	sen pete dominici
+INFO:root:6529	governor school arts louisville ky
+INFO:root:1597	afghanistan women condition
+INFO:root:719	california wildflower tour
+INFO:root:1944	elevated rbc
+INFO:root:783	expunge driving record
+INFO:root:2724	ear ring loud
+INFO:root:836	fairfax county senior program
+INFO:root:7082	42st port authority
+INFO:root:9193	indiana state park cabin reservation
+INFO:root:8436	fort snell state park
+INFO:root:8445	know youre pregnant
+INFO:root:8095	barack obama biography
+INFO:root:8748	benefit seven habit
+INFO:root:3156	bop
+INFO:root:4096	clean tarnish penny
+INFO:root:3388	alligator lizard
+INFO:root:219	aspirin cancer prevention
+INFO:root:256	make weather map
+INFO:root:1755	shoulder pain exercises
+INFO:root:81	fresno ca population 1990
+INFO:root:841	earth science project
+INFO:root:42	jeep gas mileage
+INFO:root:5250	identity theft
+INFO:root:1913	law enforce pay scale louisiana
+INFO:root:8422	ive working railroad
+INFO:root:4965	telephone company 1890
+INFO:root:4414	job opening spokane wa
+INFO:root:5695	map united states america
+INFO:root:9932	uninhabited ocean island
+INFO:root:1119	removal quapaw arkansas
+INFO:root:4676	moped law west virginia
+INFO:root:4200	parkinson research
+INFO:root:96	shrink gallbladder
+INFO:root:9278	methadone withdrawal baby
+INFO:root:1013	local doppler san diego
+INFO:root:5040	virginia turkey season
+INFO:root:3111	food contain alginate
+INFO:root:9865	pain finger
+INFO:root:7557	forestry method technique
+INFO:root:9601	hornet nest
+INFO:root:7344	white fuzzy tongue
+INFO:root:567	jordan enterprise
+INFO:root:4847	kidney cancer screening
+INFO:root:9313	vatican
+INFO:root:1277	national park michigan
+INFO:root:2650	home watercolor
+INFO:root:2320	joint click
+INFO:root:2084	self employment tax
+INFO:root:6142	civil war soldier list
+INFO:root:7737	one ounce postage rate
+INFO:root:9086	food shop healthy
+INFO:root:9502	1991 massacre simon rock college massachusetts
+INFO:root:5671	hire question food service manager
+INFO:root:297	turkey hunting indiana
+INFO:root:1081	low white blood cell count
+INFO:root:5531	cat heart problem
+INFO:root:4404	rice lake fishing
+INFO:root:8617	senator lautenberg email
+INFO:root:8832	struggle religion
+INFO:root:3199	united states national average female police officer
+INFO:root:4711	houston police web site
+INFO:root:8308	science fair project
+INFO:root:5582	ukiah gun club
+INFO:root:7953	bayh
+INFO:root:9845	magnetic therapy chronic pain
+INFO:root:7585	animal yosemite national park
+INFO:root:3036	snow hill district court maryland traffic system citation information
+INFO:root:2134	religion hungary
+INFO:root:5440	raspberry smirnoff twist price
+INFO:root:1442	brooklyn shelter homeless
+INFO:root:5806	mark wolfenberger
+INFO:root:731	intimacy vs isolation
+INFO:root:826	whole grain
+INFO:root:6942	rainfall average san diego
+INFO:root:9047	sever thunderstorm
+INFO:root:7130	death valley lodging
+INFO:root:5000	group therapy adolescent
+INFO:root:2421	stopping nosebleed
+INFO:root:9989	elk hunting utah
+INFO:root:6055	reye syndrome
+INFO:root:2717	scratch lottery ticket indiana
+INFO:root:8484	geyser
+INFO:root:6710	us purchase alaska
+INFO:root:4162	living cayman island
+INFO:root:8968	spain national anthem
+INFO:root:6038	fact drug coke eight ball
+INFO:root:2816	military enlist
+INFO:root:2234	el salvador president
+INFO:root:8545	unemployment
+INFO:root:3774	sedalia missouri tornado
+INFO:root:7024	nh state map
+INFO:root:6906	weather watch
+INFO:root:1565	charles hedlund
+INFO:root:3816	turner syndrome
+INFO:root:1165	division alcohol firearm tobacco
+INFO:root:7135	atlantic intracoastal waterway
+INFO:root:7959	fbi firearm examine
+INFO:root:2186	dallas county texas census
+INFO:root:1958	lazy k ranch chowchilla
+INFO:root:5307	emergency response plan
+INFO:root:8064	world trade center tragedy
+INFO:root:8318	sore corner mouth
+INFO:root:5221	butterfly kiss
+INFO:root:3613	life slave civil war
+INFO:root:5013	pictures john f kennedy
+INFO:root:8383	discrimination job regarding religion
+INFO:root:8372	population wellesley mass
+INFO:root:2484	super shuttle long island
+INFO:root:2252	comparison mile kilometer
+INFO:root:7644	civil air patrol
+INFO:root:1059	require distribution ira account
+INFO:root:9876	inhale spray paint
+INFO:root:5400	rss radio
+INFO:root:208	tacoma narrows bridge fatality
+INFO:root:2988	gray jay
+INFO:root:9067	map us outline
+INFO:root:9994	facial twitch
+INFO:root:3957	child safety seat
+INFO:root:7143	cyclorama
+INFO:root:87	midwest air traffic control missouri
+INFO:root:1828	source amnesia
+INFO:root:5825	tornado kid
+INFO:root:1599	biological imprint
+INFO:root:3277	embryonic stem cell
+INFO:root:7047	citizenship marriage
+INFO:root:1609	camp natchez trace
+INFO:root:6953	brothel maryland 2006
+INFO:root:9130	pawtucket dmv
+INFO:root:6825	doctor without border
+INFO:root:2943	flesh eat bacteria
+INFO:root:524	constant lower back pain
+INFO:root:1401	paraguay info
+INFO:root:4197	copperbel water snake
+INFO:root:538	mt krakatau
+INFO:root:6225	sign woman heart attack
+INFO:root:992	topography map
+INFO:root:7979	recall rock chair
+INFO:root:8777	medicare veteran benefit
+INFO:root:6196	murder rate among races
+INFO:root:1773	antibiotic use bronchitis
+INFO:root:817	transportation security specialist
+INFO:root:4307	innovate living
+INFO:root:242	committee homeland security
+INFO:root:3831	pollution arizona
+INFO:root:3980	kansas city radar weather map
+INFO:root:7859	best time hike grand canyon
+INFO:root:6653	us representative new hampshire
+INFO:root:2371	outsource job india
+INFO:root:468	internet copyright
+INFO:root:4863	volcanic eruption
+INFO:root:8386	file patent
+INFO:root:9906	tooth fairy museum
+INFO:root:8627	dog urine lawn
+INFO:root:5590	inherit fragile x
+INFO:root:5612	whale info
+INFO:root:6391	nasa space camp kid
+INFO:root:9454	metric system
+INFO:root:3134	trevor wetterl
+INFO:root:9725	louis tuzzio
+INFO:root:9070	us postal shipping rate
+INFO:root:7457	police exam
+INFO:root:3938	copy credit report
+INFO:root:6645	carolina sphinx moth
+INFO:root:3210	adverse reaction actonel risedronate sodium tablet
+INFO:root:6141	expect earthquake memphis tn
+INFO:root:4529	accident columbia space shuttle
+INFO:root:6026	kidney lung cancer
+INFO:root:618	wayne williams atlanta child murder
+INFO:root:7857	infant anoxic brain injury
+INFO:root:9472	planet mercury image
+INFO:root:4192	veteran hospital martinsburg
+INFO:root:6618	road camera
+INFO:root:1521	montgomery county md marriage license
+INFO:root:8749	color property meat
+INFO:root:4710	federal government agency grant department
+INFO:root:837	blood donor
+INFO:root:6715	listeriosi temperature
+INFO:root:1916	arizona yearly weather pattern
+INFO:root:7425	dandruff
+INFO:root:9301	production carbon dioxide
+INFO:root:2168	song
+INFO:root:6423	14 th amendment
+INFO:root:4071	tingle back
+INFO:root:7606	atlanta veteran affair office number
+INFO:root:6362	small bright yellow bird black white tail
+INFO:root:2663	whitewash brick
+INFO:root:1721	neurotoxic methyl methacrylate
+INFO:root:7148	johnstown flood
+INFO:root:3989	nm land sale
+INFO:root:7825	colonial vegetable gardening jamestown
+INFO:root:4294	hurricane floyd savannah
+INFO:root:7272	1890 census
+INFO:root:9138	earth fault
+INFO:root:1187	mt capulin
+INFO:root:6753	us embassy guyana
+INFO:root:7572	custer last stand
+INFO:root:1570	credit report 3
+INFO:root:2523	clinical trial treat crohn disease
+INFO:root:7928	secret shop
+INFO:root:3656	vitamin k nuts
+INFO:root:3918	rmv boat
+INFO:root:7876	free us census report chart
+INFO:root:489	grant reviewer samhsa
+INFO:root:7485	stop smoking
+INFO:root:1473	may 20 1863 civil war
+INFO:root:2515	new york teacher examination
+INFO:root:2621	plan bird house
+INFO:root:7497	artificial reef
+INFO:root:6602	charleston wv city page
+INFO:root:3883	pro con helmet
+INFO:root:9726	calcium enrich food
+INFO:root:5964	add marble top existing table
+INFO:root:8005	zip code scott county va
+INFO:root:1418	teens think dui
+INFO:root:1296	whistle blower department defense
+INFO:root:957	television behavior
+INFO:root:357	loss taste smell
+INFO:root:6356	mental health org
+INFO:root:2236	sidewinder snake
+INFO:root:7369	animal service miami
+INFO:root:8987	name planet
+INFO:root:3390	small business owner
+INFO:root:8688	temperature reheate food
+INFO:root:1045	us passport form
+INFO:root:9009	oklahoma government senator representative
+INFO:root:6256	recycle albuquerque
+INFO:root:6288	buckhorn lake kentucky cabin
+INFO:root:3338	america muslim mosque school
+INFO:root:6591	united states air force academy colorado spring
+INFO:root:689	bladder located male dog
+INFO:root:4637	senator alaska
+INFO:root:7636	holiday nigeria
+INFO:root:8288	mount rushmore national monument
+INFO:root:5087	national weather service local forecast
+INFO:root:6198	infectious disease rodent feces
+INFO:root:8185	country chile
+INFO:root:7612	veteran world war
+INFO:root:5856	excessive ammonia body cause tremor
+INFO:root:4135	boston animal shelter
+INFO:root:819	gemini program
+INFO:root:1663	pat quinn
+INFO:root:7067	teen alcohol use statistics
+INFO:root:1386	current weather bozeman montana
+INFO:root:5331	fungal tit cat
+INFO:root:6042	teenage boys asperger syndrome
+INFO:root:7968	convert fahrenheit celsius
+INFO:root:1201	new government food pyramid
+INFO:root:2193	yellowstone national park activity
+INFO:root:3160	spring mill state park
+INFO:root:4267	address us passport offices
+INFO:root:9732	gary roberge
+INFO:root:481	schizophrenia drug
+INFO:root:6991	organ produce bile
+INFO:root:9559	immigrate registration form
+INFO:root:1891	ecstacy pill name
+INFO:root:1374	albania country
+INFO:root:4318	california agate
+INFO:root:9241	federal direct consolidate loan defer
+INFO:root:3189	delay hypersensitive reaction levaquin
+INFO:root:8750	effect assassinate james garfield
+INFO:root:6237	cause migraine headache
+INFO:root:4713	earth tilt
+INFO:root:1222	air traffic control school
+INFO:root:6158	historical farmington massachusetts
+INFO:root:5540	canoe rental along charles river
+INFO:root:7142	minimum wage 1996
+INFO:root:746	slot machine malfunction
+INFO:root:5094	national weather forcast
+INFO:root:7267	myxoma
+INFO:root:5941	endanger animal information list
+INFO:root:7773	photograph new york city
+INFO:root:8486	comfrey herb
+INFO:root:7155	hine va
+INFO:root:4443	sleet history
+INFO:root:1370	us cheese production
+INFO:root:6844	dispute item credit report
+INFO:root:2510	mice cave
+INFO:root:9143	fema
+INFO:root:4626	fishing washington
+INFO:root:4594	cyst neck
+INFO:root:8908	schwan food manufacture
+INFO:root:4188	national gallery art washington dc
+INFO:root:580	batavia illinois restaurant
+INFO:root:3081	abraham lincoln life
+INFO:root:3791	ethanol gas
+INFO:root:7995	jasperindiana
+INFO:root:8632	james patrick connel
+INFO:root:5579	minimum wage increase
+INFO:root:5011	small two seat helicopter
+INFO:root:2789	dietary guidelines america
+INFO:root:6659	town east haddam
+INFO:root:9174	18th combat support wing
+INFO:root:2657	teenage pregnancy
+INFO:root:9892	student loan interest deduction
+INFO:root:8071	blood glucose normal range
+INFO:root:9487	manasquan river tide
+INFO:root:1728	oregon crater lake eruption
+INFO:root:7802	city augusta ga police dept
+INFO:root:2540	cuyahoga train ride
+INFO:root:8818	citrus tree fertilizer
+INFO:root:2818	china food nutrition guide
+INFO:root:7858	irs small business tax form
+INFO:root:3632	kitchenaid vs subzero refrigerator
+INFO:root:7703	hershey candy code
+INFO:root:5017	notary license arizona
+INFO:root:10	qualifications senator
+INFO:root:4279	mallard ducks
+INFO:root:5561	constitutional convention 1787
+INFO:root:7517	maine map
+INFO:root:8555	albert wynn
+INFO:root:4687	science activity involve water
+INFO:root:1971	elmendorf afb civil air patrol
+INFO:root:3208	fema faq
+INFO:root:696	us department energy atomic weapon research 1945 1962
+INFO:root:547	effexor fda approve treat
+INFO:root:4967	cooking bags safe
+INFO:root:1526	green lane reservoir park
+INFO:root:6624	campfire cooking
+INFO:root:6988	alan greenspan retirement
+INFO:root:2920	camp grand canyon
+INFO:root:2277	states higher cancer rate
+INFO:root:5084	last 6 month heart failure
+INFO:root:736	dates washington dc cherry blossom festival
+INFO:root:8519	air tight wood stove operation
+INFO:root:7189	famous senator history
+INFO:root:2745	washington monument landmark
+INFO:root:7692	pdx airport future plan
+INFO:root:1623	calorie whole bean
+INFO:root:7504	us want
+INFO:root:2106	arizona parkway
+INFO:root:6197	treatment aids
+INFO:root:1337	frederick douglasss grandchildren
+INFO:root:5204	faa summer employment
+INFO:root:1934	many people herpes
+INFO:root:1087	hayden clark
+INFO:root:1862	tornado map illinois missouri
+INFO:root:6760	contact california senator
+INFO:root:2888	greenville sc paris moutain state park
+INFO:root:6137	angelman syndrome
+INFO:root:6111	effects interferon
+INFO:root:4159	franklin roosevelt home
+INFO:root:1312	us passport information infant
+INFO:root:2939	greyhound rescue massachusetts
+INFO:root:8528	sante fe new mexico
+INFO:root:5026	physical therapy vs occupational therapy
+INFO:root:1864	car rental albuquerque nm airport
+INFO:root:1304	gastric bypass complication
+INFO:root:6291	definition vitamin
+INFO:root:7524	report illegal alien
+INFO:root:1929	cause thunderstorm
+INFO:root:5988	ann klee
+INFO:root:4946	new hampshire tourism
+INFO:root:6634	weight loss alzheimer patient
+INFO:root:2216	pennsylvania water level
+INFO:root:6473	map jamaica bay
+INFO:root:1254	treat kidney stone
+INFO:root:7766	homicide statistics
+INFO:root:3779	donation body parts
+INFO:root:4970	united states embassy ottawa
+INFO:root:8894	office violence women
+INFO:root:8072	usci law enforce
+INFO:root:9973	statistics firework hazard
+INFO:root:3425	health topic science project
+INFO:root:9507	pregnancy medicine
+INFO:root:2952	diet supplement ephedra
+INFO:root:9326	vegetable calorie
+INFO:root:7038	figure va disability percentage
+INFO:root:9798	lupu death
+INFO:root:8979	recent earth quake california
+INFO:root:3206	factbook ireland
+INFO:root:3943	diagnose lung cancer
+INFO:root:681	battle palo alto
+INFO:root:5667	hooded cobra
+INFO:root:9923	antidepressant grapefruit juice
+INFO:root:49	surf temperature charleston sc
+INFO:root:369	needle california
+INFO:root:1948	us 65 population states
+INFO:root:4092	check status us passport renewal
+INFO:root:8138	pollution chesapeake bay
+INFO:root:123	wedding beach ca
+INFO:root:9442	pediatric anesthesia effects
+INFO:root:9184	osama ben ladin
+INFO:root:392	evict someone state montana
+INFO:root:6014	melting point paradichlorobenzene
+INFO:root:441	george afb ca
+INFO:root:5554	fbi field offices
+INFO:root:1885	exposure high level toxic benzene
+INFO:root:8835	creation alps mountain
+INFO:root:3100	radiation food
+INFO:root:3094	information mexico mafia
+INFO:root:6936	give baby sugar water
+INFO:root:6776	alternative fuel e85
+INFO:root:7607	united states require wear seat belt
+INFO:root:5330	penkovsky case
+INFO:root:2239	puerto rican flag layout
+INFO:root:7278	garlic allergy
+INFO:root:638	visit colorado
+INFO:root:4303	nuclear weapon test new mexico
+INFO:root:2763	table effects drug
+INFO:root:834	africa travel warning
+INFO:root:7569	senator dominici office
+INFO:root:9089	biography john lewis
+INFO:root:9835	pdf
+INFO:root:3859	cell phone driving statistics
+INFO:root:2607	motorcycle high speed cause crash
+INFO:root:4282	allergy amoxicillin
+INFO:root:4808	liver disease info
+INFO:root:5310	belaru
+INFO:root:6930	hot dimple
+INFO:root:9243	ny irs location
+INFO:root:6667	montana history great depression
+INFO:root:4544	liver level
+INFO:root:7559	x ray binary stars
+INFO:root:1046	lab test chronic fatigue
+INFO:root:7112	senate email
+INFO:root:6580	recycle plastics
+INFO:root:3554	specific blood test test celiac disease sprue
+INFO:root:7020	natural treatment sinus infection
+INFO:root:1737	synthetic diamond making process
+INFO:root:6685	map mars water
+INFO:root:5225	diabetes pump
+INFO:root:5187	louisiana hurricane flood projection
+INFO:root:1039	depression homosexual
+INFO:root:8978	alternative work schedule
+INFO:root:8889	elevated clot factor blood
+INFO:root:7613	washington state state flag
+INFO:root:4725	food often go bad refrigerator
+INFO:root:9271	utah state property tax
+INFO:root:4644	uss peleliu deploy 2006
+INFO:root:4917	damage cause breast implant
+INFO:root:2157	problem drink much alcohol
+INFO:root:4804	slim fast diet
+INFO:root:4858	samuel c sample
+INFO:root:4082	department veteran affair
+INFO:root:1589	indiana weather data
+INFO:root:7576	food
+INFO:root:5672	indiana city map
+INFO:root:4419	1960s mustang sale florida
+INFO:root:3704	ksa ability work pressure
+INFO:root:9471	turbo jet engine
+INFO:root:8125	population singapore
+INFO:root:6898	world war ii casualty marine corps
+INFO:root:3300	wish land cotton
+INFO:root:5895	katherine g johnson
+INFO:root:3032	palmyra island
+INFO:root:9116	w 4 form
+INFO:root:2244	social security lost card
+INFO:root:2043	hyperglycemia chronic pancreatiti
+INFO:root:5934	corp rule
+INFO:root:4278	vietnam memorial washington dc
+INFO:root:1350	gerber baby food
+INFO:root:3552	psychotic depression
+INFO:root:1315	kidney
+INFO:root:5981	volunteer opportunity teens cleveland ohio
+INFO:root:8101	pangea continent
+INFO:root:8053	taking tramadol affect ability become pregnant
+INFO:root:9367	homosexual second parent adoption
+INFO:root:924	riverside library
+INFO:root:2560	us world war ii liberty ship
+INFO:root:8785	seize real estate
+INFO:root:1297	lame horse
+INFO:root:4304	amount medical bill claim federal return
+INFO:root:9540	pseudomona aeruginosa cat
+INFO:root:9098	guatemala
+INFO:root:8096	noise noradrenaline
+INFO:root:5636	tinnitu suicide
+INFO:root:5527	black found college university
+INFO:root:2872	organization chart national labor relations board
+INFO:root:4456	california state bar member
+INFO:root:2309	syphilis rash symptom
+INFO:root:8577	raise duckling
+INFO:root:605	everglades national park boat trip
+INFO:root:7473	letrozole
+INFO:root:4421	emotional maturity
+INFO:root:7363	ohio top 10 want
+INFO:root:3124	income tax form
+INFO:root:8630	mi holly military cemetery
+INFO:root:6283	mars flood
+INFO:root:3818	cancer nigeria
+INFO:root:720	taking two diet supplement time
+INFO:root:5077	numb right side body mean
+INFO:root:2806	bio fred dalton thompson
+INFO:root:1762	police officer educational scholarship
+INFO:root:8182	relocate wyoming
+INFO:root:4839	disability qualify ssi
+INFO:root:675	circular flow
+INFO:root:5855	autism vaccination
+INFO:root:2297	official state california web site
+INFO:root:935	springfield il tornado
+INFO:root:7133	war collage
+INFO:root:3780	us embassy turkey
+INFO:root:5280	first person land moon
+INFO:root:1043	california real estate state exam
+INFO:root:7152	sidewalk chalk art
+INFO:root:5106	calculating series ee bonds
+INFO:root:9578	get us passport
+INFO:root:9781	abortion post care
+INFO:root:2178	execution david chandler
+INFO:root:713	military record dd214
+INFO:root:3244	volcanic activity
+INFO:root:5928	phillip sheridan photo
+INFO:root:311	fruit storage
+INFO:root:289	walking sticks
+INFO:root:9289	epa emission
+INFO:root:4117	amtrak la san francisco
+INFO:root:1823	mt saint helen
+INFO:root:3166	child kidnap
+INFO:root:8353	dent skull
+INFO:root:939	neic
+INFO:root:5294	final stage aids
+INFO:root:8023	voyager 2 neptune
+INFO:root:1400	fire spread
+INFO:root:4919	newport public library ri
+INFO:root:5979	wisconsin army reserve afghanistan
+INFO:root:558	grand canyon
+INFO:root:9547	polyester carpet
+INFO:root:526	daily parking regulation new york city
+INFO:root:1653	united states life expect rate
+INFO:root:3180	fishing mascoma lake new hampshire
+INFO:root:5257	find least square line graphics calculator
+INFO:root:2417	puerto rico state
+INFO:root:1712	food high blood pressure
+INFO:root:8681	age limit heart transplant
+INFO:root:6172	h1 b visa fee
+INFO:root:6018	around date month season change
+INFO:root:222	gsa fleet sales
+INFO:root:7209	home energy conservation
+INFO:root:6086	unique rare coin
+INFO:root:8602	city sunnyvale california
+INFO:root:1783	school lunch survey
+INFO:root:8456	study links bone density loss soda drink teens
+INFO:root:3765	cost lithotripsy
+INFO:root:3367	william j clinton presidential library museum
+INFO:root:2454	vitamin cancer
+INFO:root:408	scalp seborrhea
+INFO:root:9991	snow fall dec wi
+INFO:root:3483	kidney fatigue
+INFO:root:7404	implant birth control
+INFO:root:3668	betsy ross information
+INFO:root:446	america traveler motor club inc
+INFO:root:1696	locomotive
+INFO:root:57	order prescription drug line
+INFO:root:987	plant use medicinal
+INFO:root:4517	non prescription appetite suppressant
+INFO:root:1676	civil war timeline may 1863
+INFO:root:9940	sales tax states
+INFO:root:135	deer population
+INFO:root:1198	city cincinnati mayor
+INFO:root:7201	secondhand smoke
+INFO:root:7286	usp rate quote
+INFO:root:2587	bromocryptine pituitary adenoma
+INFO:root:5083	carotid artery symptom
+INFO:root:4726	javelina range description
+INFO:root:3158	cocaine
+INFO:root:3319	get plumber license ny
+INFO:root:5797	state park maine
+INFO:root:5375	steam boiler set
+INFO:root:2577	brooklyn map
+INFO:root:9786	information saltgrass
+INFO:root:6463	mental illness genetics
+INFO:root:5214	fluid eustachian tube
+INFO:root:7803	new currency
+INFO:root:7177	three wheel vehicle
+INFO:root:6414	ben bernanke new federal reserve chairman
+INFO:root:1798	pictures battle marshall island
+INFO:root:9180	turtle mojave river
+INFO:root:3365	tenement museum
+INFO:root:6518	gold medication
+INFO:root:5304	ebola virus
+INFO:root:4244	metallic taste mouth cause
+INFO:root:5888	louisiana capital building
+INFO:root:6033	chronic periventricular leukomalacia
+INFO:root:772	simile metaphor lesson
+INFO:root:6397	purple martin house building
+INFO:root:5756	vietnam veteran memorial washington dc
+INFO:root:8797	organ donor
+INFO:root:2126	information savings bonds
+INFO:root:1886	example high blood pressure
+INFO:root:2857	credit report agency
+INFO:root:8917	vladivostok russia
+INFO:root:7467	california state law enforce job
+INFO:root:333	hvac training certificate
+INFO:root:432	symptom fifth disease
+INFO:root:4635	public transportation san jose san francisco
+INFO:root:9999	pancrea cancer
+INFO:root:132	federal government manic depression costs
+INFO:root:5996	ishare silver trust
+INFO:root:486	salary clinical psychologist
+INFO:root:7643	senior population arizona
+INFO:root:916	weather 1960s
+INFO:root:350	eduneere
+INFO:root:5555	state mississippi employment
+INFO:root:4827	consumer fraud web
+INFO:root:5172	yellowstone park dunraven pass
+INFO:root:4484	va deer season
+INFO:root:3510	oran north africa
+INFO:root:8687	fish mercury
+INFO:root:5373	declarationof independance
+INFO:root:8551	hand gun statistics
+INFO:root:1611	nerf football
+INFO:root:964	retirement baby boom
+INFO:root:2757	roosevelt district phoenix
+INFO:root:398	weather oahu honolulu
+INFO:root:9364	west nile virus
+INFO:root:1108	michigan dairy farm
+INFO:root:7836	grant law enforce radar gun
+INFO:root:5434	us fire arms
+INFO:root:8409	mugalli v ashcroft
+INFO:root:1234	irs tax guide lines personal automobile
+INFO:root:4084	gas mileage chevrolet van
+INFO:root:8593	harp ferry arsenal
+INFO:root:469	precious metal commodity
+INFO:root:268	rubella disease
+INFO:root:8243	reduce debt free online
+INFO:root:9948	dan flavin
+INFO:root:871	adoption china children
+INFO:root:6887	licorice plant
+INFO:root:2736	look president carter
+INFO:root:5516	medlineplu medical encyclopedia diabetes
+INFO:root:4675	acre square feet
+INFO:root:9513	cook food left room temperature
+INFO:root:2994	aircraft electronic interference
+INFO:root:4272	population current usa
+INFO:root:9290	disease young goat
+INFO:root:9208	underground railroad landmark kentucky
+INFO:root:7339	recycle foam rubber
+INFO:root:5715	teacher educational requirement
+INFO:root:2243	sen john kerry
+INFO:root:5780	reintroduction gray wolf
+INFO:root:7269	pictures san francisco earthquake 1906
+INFO:root:5847	national security preparedness
+INFO:root:814	2005 mint coin
+INFO:root:8342	ohio daycare
+INFO:root:6601	job salary
+INFO:root:2469	crown vetch seed
+INFO:root:3706	kwakiutl indian
+INFO:root:5327	blizzard warning
+INFO:root:6185	storefront church
+INFO:root:4746	state representitive florida
+INFO:root:4511	psychosocial stress
+INFO:root:6527	annual snowfall atlanta georgia
+INFO:root:6000	palau citizenship
+INFO:root:9012	graphic designer stat
+INFO:root:8260	big dig pork
+INFO:root:9464	bleeding sinus surgery
+INFO:root:9445	muscle twitch hand
+INFO:root:1444	haunt area north carolina
+INFO:root:2120	percent federal tax
+INFO:root:8616	employee tell supervise leave work station
+INFO:root:8812	medicare hospice
+INFO:root:5409	protein production synthesis
+INFO:root:1102	apply passport
+INFO:root:181	control type ii diabetes
+INFO:root:9150	sarcoma
+INFO:root:914	sandhill crane refuge
+INFO:root:5865	george bush inaugurate
+INFO:root:6972	valerian
+INFO:root:6286	geostationary satellite
+INFO:root:4763	history dingman ferry pa
+INFO:root:6933	illinois population
+INFO:root:8290	symptom typhoid fever
+INFO:root:1775	us government plan disaster
+INFO:root:8233	history twa
+INFO:root:3582	heart valve repair age group
+INFO:root:9831	egcsd
+INFO:root:9922	fact black hole
+INFO:root:3295	historical white house chef
+INFO:root:8379	fact wyoming
+INFO:root:9979	duty police sergeant
+INFO:root:9423	calcium rich food
+INFO:root:7710	thomas jefferson early life office
+INFO:root:1300	identify attention deficit disorder
+INFO:root:3835	snoqualmie falls
+INFO:root:7700	plague yersinia pesti new mexico
+INFO:root:8537	inseam measurement
+INFO:root:1887	fire island marina
+INFO:root:3336	prince kuhio bio
+INFO:root:8063	wine grape juice
+INFO:root:262	sugar maple tree
+INFO:root:5663	deltoid muscle
+INFO:root:9927	testosterone
+INFO:root:7466	distance center earth
+INFO:root:5901	white house egg hunt
+INFO:root:9570	reason snap bone
+INFO:root:249	menu women gestation diabet
+INFO:root:5549	archive vietnam war
+INFO:root:669	cause varicose vein
+INFO:root:6600	sudafe pregnancy
+INFO:root:4479	color pictures human heart
+INFO:root:8713	earth ice cap melting news
+INFO:root:3238	internal revenue service deduction
+INFO:root:8424	galveston bay map
+INFO:root:3149	stephen crane biographical information
+INFO:root:9302	pay scale us air force
+INFO:root:1287	snowfall data concord nh
+INFO:root:9453	comet create
+INFO:root:4631	keep slice apple
+INFO:root:34	catholic private school history
+INFO:root:9696	ticket white house
+INFO:root:9566	fl section 8 apartments
+INFO:root:5049	beef cattle ranch
+INFO:root:1232	fcc marine radio operator license renewal
+INFO:root:9113	portugal world war ii
+INFO:root:7729	cruise ship schedule hawaii
+INFO:root:5704	tropical name
+INFO:root:1064	domestic assistance women
+INFO:root:7285	benefit physical activity
+INFO:root:3038	presume consent law cornea removal
+INFO:root:2080	free computer
+INFO:root:8002	search web gentian
+INFO:root:7675	police lateral transfer
+INFO:root:1377	article hurricane andrew
+INFO:root:8913	miami property value
+INFO:root:7469	2002 health care gross domestic product us
+INFO:root:1190	file income tax
+INFO:root:33	dmv clovi
+INFO:root:121	betsy ross childhood
+INFO:root:1004	national radar weather
+INFO:root:3566	form 1099 wrong
+INFO:root:1648	acid reflux side effects
+INFO:root:2474	california labor code section 233
+INFO:root:7360	crime statistics city city
+INFO:root:8732	nyc police car
+INFO:root:3374	dakin solution
+INFO:root:765	missouri tornado damage march 12 2006
+INFO:root:2548	rube golberg cartoon invention
+INFO:root:2615	address telephone number france consulate new york
+INFO:root:688	missouri graduation requirement
+INFO:root:4099	diet exchange
+INFO:root:5826	understanding open end loan plan
+INFO:root:4442	hannah van buren
+INFO:root:9216	galileo satellite
+INFO:root:6252	hypercalcemia
+INFO:root:8919	physical symptom poor diet
+INFO:root:8701	pol pot
+INFO:root:2378	wright brother blueprint
+INFO:root:629	example organelle
+INFO:root:9568	end surrender period annuity
+INFO:root:8141	dopamine acute renal failure
+INFO:root:4183	report tax exempt interest irs
+INFO:root:7631	education level parole officer
+INFO:root:9997	raloxifene
+INFO:root:6301	alpha fetoprotin
+INFO:root:4878	add turbulence
+INFO:root:8366	social security card identity theft
+INFO:root:5867	corporation
+INFO:root:7522	publisher clearing house
+INFO:root:2136	norfolk state university photo
+INFO:root:3652	401 k plan
+INFO:root:8652	shrimp farming south carolina clemson university
+INFO:root:1548	redwood
+INFO:root:6376	stone ridge school bethesda
+INFO:root:9939	nmf blue whale
+INFO:root:5408	obtain passport
+INFO:root:6500	report spam
+INFO:root:4373	hybrid alternative fuel car
+INFO:root:1413	know ulcer
+INFO:root:6476	grant jewish vocal artist
+INFO:root:6805	saffir simpson scale
+INFO:root:7830	fact us currency
+INFO:root:9661	location breast abnormal
+INFO:root:4151	flag display rule
+INFO:root:6963	music beauty beast
+INFO:root:8365	urban suburban coyote
+INFO:root:3341	diverticuliti antibiotic
+INFO:root:609	tornado info
+INFO:root:1359	roanoke va population
+INFO:root:7762	occupational therapy job
+INFO:root:8859	information grizzly bear
+INFO:root:7688	kennendy space center
+INFO:root:7785	female grade point average
+INFO:root:6030	single simian crease
+INFO:root:9881	alfonso lenhardt
+INFO:root:2986	ethiopia adoption agency
+INFO:root:9404	san diego police
+INFO:root:4656	passport information application
+INFO:root:6786	low rate house loan
+INFO:root:2188	master science computer information system hourly wage
+INFO:root:8762	thomas edison
+INFO:root:686	handle fee
+INFO:root:4340	west virginia climate weather
+INFO:root:4620	us merchant marine cruise ship
+INFO:root:2635	homeowner property tax
+INFO:root:2739	costa rica prostitution
+INFO:root:241	atrial flutter
+INFO:root:2527	tape help wart
+INFO:root:769	post traumatic stress syndrome vietnam
+INFO:root:2708	cocaine smuggle
+INFO:root:7662	march health aware
+INFO:root:130	information v chip
+INFO:root:4354	national park elli island
+INFO:root:4258	fort knox gold kentucky tour
+INFO:root:8299	swollen feet pain leg
+INFO:root:4993	texas climate
+INFO:root:6915	north korea counterfeit
+INFO:root:9855	brown tree snake
+INFO:root:2259	frankel classification scale
+INFO:root:9968	us consulate mumbai
+INFO:root:5313	life john rockefeller
+INFO:root:2473	chri dodd leadership position
+INFO:root:1216	sign kidney failure elderly
+INFO:root:247	tennessee tornado
+INFO:root:729	statistics drug comparison violence behavior
+INFO:root:6697	summer job opportunity
+INFO:root:9611	map state florida
+INFO:root:9200	depression children
+INFO:root:6952	seize real estate united states
+INFO:root:221	ocean current staugustine inlet
+INFO:root:9001	dysplastic melanocytic nevu
+INFO:root:1534	nuclear reactor
+INFO:root:3917	statistics percent us infect aids
+INFO:root:6718	inaugurate president
+INFO:root:4172	atlantic city nj 1930 directory
+INFO:root:7243	mega ball lottery
+INFO:root:3417	heroin fact sheet
+INFO:root:4070	dog orthodontics
+INFO:root:4927	material found bohrium
+INFO:root:3362	madison war message
+INFO:root:5115	500 tax incentive replace gas furnace
+INFO:root:5811	rainfall amount smithfield nc hurricane fran
+INFO:root:8196	13 amendment
+INFO:root:7017	governor james douglas
+INFO:root:4126	marriage spain
+INFO:root:3842	nicole maalouf
+INFO:root:2906	police work schedule
+INFO:root:5417	long person live find cancer lymph node
+INFO:root:5565	tourette syndrome antisocial behavior
+INFO:root:9329	az county treasurer
+INFO:root:7265	washington beetle
+INFO:root:562	food process plant closure
+INFO:root:3253	colonoscopy
+INFO:root:2585	location u mint
+INFO:root:5476	california sand burrow
+INFO:root:1911	atchafalaya
+INFO:root:9992	effects oxycontin
+INFO:root:4678	data flow diagram
+INFO:root:646	hp notebook recall
+INFO:root:3621	youth violence
+INFO:root:5808	teen sexual education
+INFO:root:6820	self starter business
+INFO:root:8327	map fayette county kentucky
+INFO:root:133	diltiazem xr
+INFO:root:9355	jpl
+INFO:root:2839	type mozzarella cheese
+INFO:root:7673	national guard involve iraq
+INFO:root:3612	elevator restoration
+INFO:root:7232	dental enbrel
+INFO:root:8936	lautrec
+INFO:root:575	scientific name gonyaulax
+INFO:root:1051	metro rail miami fl
+INFO:root:2201	daytona beach water temperature
+INFO:root:390	mars largest canyon
+INFO:root:6244	quit smoking tip
+INFO:root:2744	women obese
+INFO:root:6092	rio rancho estate
+INFO:root:2501	ashley furniture
+INFO:root:2962	subcutaneous injection
+INFO:root:8581	lookout mountain
+INFO:root:3030	cornea infection
+INFO:root:1298	calculate area
+INFO:root:3887	riparian
+INFO:root:945	germany shepard dogs fresno california
+INFO:root:6241	mount pleasant county school district
+INFO:root:5717	ben guide us goverment
+INFO:root:7046	type pear
+INFO:root:7877	sabre spring park san diego
+INFO:root:3230	tenotomy bunionectomy
+INFO:root:8126	devil slide beach
+INFO:root:4989	new york autism school
+INFO:root:4910	good credit score
+INFO:root:2343	things georgia
+INFO:root:7878	florida seminole indian
+INFO:root:7107	nyc taxi medallion broker
+INFO:root:6261	binge eat cause
+INFO:root:4830	noaa radar
+INFO:root:1840	housing allowance
+INFO:root:6701	mount unit new york city police
+INFO:root:3635	indiana 43rd regiment
+INFO:root:6801	many white collar crime occur
+INFO:root:3858	us senator job
+INFO:root:2682	rainforest school science project idea
+INFO:root:1544	associate degree
+INFO:root:3325	civil war battle reenactment
+INFO:root:3310	early childhood teaching method
+INFO:root:4670	low dose methotrexate
+INFO:root:2104	childstat
+INFO:root:1443	georgia
+INFO:root:6767	weight loss cancer
+INFO:root:5454	pet therapy
+INFO:root:9621	thomas edison film
+INFO:root:7744	lung size
+INFO:root:4426	welfare fraud pennsylvania
+INFO:root:1252	us government auction
+INFO:root:4657	paula maher
+INFO:root:3634	hunting death
+INFO:root:7943	lesson front
+INFO:root:4691	columbia space shuttle crew
+INFO:root:9591	future direction mental health coverage
+INFO:root:633	nuclear reactor control
+INFO:root:4368	condor pinnacle
+INFO:root:9564	ocmulgee national museum
+INFO:root:2804	tetanus reaction
+INFO:root:2476	solar system know
+INFO:root:7993	model railroad
+INFO:root:7316	metastatic prostate cancer
+INFO:root:6613	state department united states
+INFO:root:9016	consumer tip hurricane repair
+INFO:root:2624	snowfall northern az
+INFO:root:5730	cush syndrome symptom
+INFO:root:2503	federal tax exemption sell home
+INFO:root:8268	representative brad miller
+INFO:root:2961	north dakota deer hunting
+INFO:root:400	south mountain battle
+INFO:root:1354	albany new york
+INFO:root:3755	martha jefferson bio
+INFO:root:4050	1040a w2 form
+INFO:root:3558	label garment
+INFO:root:9373	marriage citizenship
+INFO:root:1665	arnold shwartzenegger
+INFO:root:8929	fact multiple personality
+INFO:root:5387	info white sturgeon
+INFO:root:1692	us currency denomination
+INFO:root:3670	pictures 9 planet
+INFO:root:9066	fry pan park va
+INFO:root:9402	texas gas tax
+INFO:root:3231	local news line maryland
+INFO:root:2121	biology embryology twin
+INFO:root:7899	davis plantation
+INFO:root:6834	congress comstock law
+INFO:root:5037	sandy hook nj
+INFO:root:1579	irs tax form 1099 c instruction
+INFO:root:9267	earth compare sun
+INFO:root:8149	stratton nebraska
+INFO:root:1439	sign get period
+INFO:root:7446	pictures carter woodson
+INFO:root:4208	make sweden fish
+INFO:root:9963	small business statistics
+INFO:root:6008	tax independent contractor
+INFO:root:5955	grave disease cause low immune system
+INFO:root:8647	mussolini politics cartoon
+INFO:root:668	us treasury bill purchase site
+INFO:root:4933	ivory bill woodpecker
+INFO:root:7456	montgomery county md job
+INFO:root:1220	etowah alaskan indian
+INFO:root:1361	airport chicago
+INFO:root:7262	sexual dysfunction due zoloft
+INFO:root:2079	national weather service
+INFO:root:9670	harpersferry west virginia
+INFO:root:4957	bahamas map
+INFO:root:8869	nasa scholarship
+INFO:root:37	elevated pancreas
+INFO:root:9800	equal house lend
+INFO:root:4547	good feet store
+INFO:root:1113	history menopause
+INFO:root:7887	belgium consulat
+INFO:root:2674	rehabilitate wrist
+INFO:root:5008	electrician job opportunity new york
+INFO:root:9339	moth balls increase octane
+INFO:root:9669	natural resources oil
+INFO:root:8770	cruise warning
+INFO:root:849	webcam along california highway
+INFO:root:5686	bahamas nassau airport
+INFO:root:3028	set clock spring 2006
+INFO:root:1319	dissolution marriage california
+INFO:root:270	job description employer hire
+INFO:root:7856	planet years
+INFO:root:8605	statement work
+INFO:root:9169	kidney transplant
+INFO:root:777	national park service reservation
+INFO:root:3308	assemble
+INFO:root:6322	governorohio
+INFO:root:7458	wisconsin teaching certificate
+INFO:root:7069	wind zone map texas
+INFO:root:5161	randy cunningham bio
+INFO:root:7663	ring neck pheasant
+INFO:root:418	los angeles map
+INFO:root:7620	body heat affect joint
+INFO:root:5624	wide brim male gardening hat
+INFO:root:2820	car export nigeria us
+INFO:root:8311	police job
+INFO:root:7314	electrolyte disorder symptom
+INFO:root:9550	maricopa county arizona property tax
+INFO:root:9315	battle balls bluff
+INFO:root:4924	average annual salary 1975
+INFO:root:5783	impact hurricane gilbert jamaica
+INFO:root:9747	many yogurt side effects
+INFO:root:1912	kid map united states
+INFO:root:1349	body mass index table
+INFO:root:9263	sun protection clothing
+INFO:root:6967	type lightning
+INFO:root:8406	federal rental assistance
+INFO:root:2386	bird flu avian
+INFO:root:7603	women scientist
+INFO:root:3563	40th president
+INFO:root:5735	swollen gland arm pit
+INFO:root:714	teton national park cabin
+INFO:root:9708	pain medication depression
+INFO:root:4825	orange variety season
+INFO:root:868	army medical unit
+INFO:root:5857	battle little big horn
+INFO:root:2532	itch leg
+INFO:root:9953	moving expenses deduct tax
+INFO:root:1924	gastritis coffee
+INFO:root:4048	early symptom alzheimer
+INFO:root:7188	trailtech recall
+INFO:root:2394	medical transcription job washington state
+INFO:root:194	fbi employment
+INFO:root:3529	jupiter moon
+INFO:root:6811	congresswoman marilyn musgrave
+INFO:root:6821	social security earnings benefit statement
+INFO:root:9684	government fact new hampshire
+INFO:root:4229	southern california road conditions kern county
+INFO:root:5567	black civil war
+INFO:root:1135	many calorie consumption maintain regular weight
+INFO:root:1890	ghana country africa
+INFO:root:1697	kidney infection cause
+INFO:root:6721	blondell reynolds
+INFO:root:3729	declaration independence 1776
+INFO:root:616	earthquake occur us
+INFO:root:763	quality life california state
+INFO:root:3254	mural
+INFO:root:3781	member house representative
+INFO:root:2284	sam brownback
+INFO:root:2864	pseudoephedrine hci
+INFO:root:152	ozark trail camp lantern
+INFO:root:177	clock current time
+INFO:root:5687	dose clindamycin strep throat
+INFO:root:2725	ireland immigrant 1880
+INFO:root:4566	judge dorina ramo
+INFO:root:7829	mazda mx 5 gas mileage
+INFO:root:4638	town moriarty new mexico
+INFO:root:5065	chromium picolinate liver
+INFO:root:1184	information benjamin harrison
+INFO:root:2760	astar aircargo inc
+INFO:root:2604	glen echo carousel
+INFO:root:9260	food avoid irritable bowel syndrome
+INFO:root:9335	crip delaware
+INFO:root:6599	dysgraphia
+INFO:root:1830	proven method lower cholesterol
+INFO:root:1636	math games classroom
+INFO:root:8168	type spider brazil
+INFO:root:5267	ear infection pneumonia
+INFO:root:2357	romania weather
+INFO:root:6940	symptom post tramatic stress syndrome
+INFO:root:3864	pi symbol 314159
+INFO:root:3289	hardhead catfish
+INFO:root:7851	california child endanger law
+INFO:root:8816	automobile gas mileage rating
+INFO:root:6485	russia milk
+INFO:root:7081	find local police precinct nyc
+INFO:root:6280	vitamin dogs
+INFO:root:6519	okmulgee creek nation
+INFO:root:3402	employment overseas
+INFO:root:7455	oklahoma ant
+INFO:root:2695	cdc guidelines hand hygiene
+INFO:root:5349	home george washington
+INFO:root:6281	pay tax sale home
+INFO:root:2235	deer tick
+INFO:root:1329	kurd history
+INFO:root:3667	san andrea fault
+INFO:root:9466	valley forge memorial arch
+INFO:root:4975	transplant yucca
+INFO:root:6654	republican party mascot
+INFO:root:3535	mississippi white bass limit
+INFO:root:1720	free online tax preparation program
+INFO:root:6437	ban human clone
+INFO:root:2375	white house ball
+INFO:root:6108	shrimp trawl
+INFO:root:4031	ear infection hearing aids
+INFO:root:7299	pacific tree frog
+INFO:root:885	welcome new york
+INFO:root:544	mt hood lava bed oregon
+INFO:root:4868	united states senator new mexico
+INFO:root:9928	bonds versus ee bonds
+INFO:root:3071	photographer world war 11
+INFO:root:794	emancipation proclamation
+INFO:root:2562	college west virginia
+INFO:root:3903	type 1 diabetes
+INFO:root:970	prison reentry
+INFO:root:3662	ms 13 colorado
+INFO:root:9752	noaa memphis
+INFO:root:6357	take airliner
+INFO:root:4621	elk wildlife
+INFO:root:973	north america owl
+INFO:root:4290	travel requirement canada united states
+INFO:root:6010	wind farm new mexico
+INFO:root:2823	china culture america nutrition
+INFO:root:7322	russia change economy
+INFO:root:9147	file extension income tax
+INFO:root:5467	lockwood plaza apartments ri
+INFO:root:1875	high school mitosis meiosis
+INFO:root:4312	offroad map mohave county
+INFO:root:5898	equal pay act 1963
+INFO:root:1000	africa america nurse world war ii
+INFO:root:8352	eskimo history
+INFO:root:4371	lyme new hampshire
+INFO:root:3296	tornado record louisiana year
+INFO:root:8930	duty bartender
+INFO:root:6449	catalytic stove
+INFO:root:50	federal housing assistance loan
+INFO:root:8521	characteristic people diabetes
+INFO:root:2185	stage iv lung cancer prognosis
+INFO:root:2556	radio station sale
+INFO:root:69	mild yeast infection
+INFO:root:6498	va healthcare eligible
+INFO:root:756	sale government property general sale
+INFO:root:9772	unite states map
+INFO:root:1175	newyorkstate government job
+INFO:root:8281	best diet ibs relief
+INFO:root:863	symptom adhd
+INFO:root:8068	distance grand canyon phoenix
+INFO:root:2722	hike camelback mountain phoenix
+INFO:root:9314	diabetes hispanic
+INFO:root:3955	general samuel e ebbesen photo
+INFO:root:8024	epa method 625 modification
+INFO:root:3944	auto registration fee
+INFO:root:5144	mennonite mexico
+INFO:root:7301	abdominal distension
+INFO:root:6479	young soldier civil war
+INFO:root:5249	plane job
+INFO:root:4251	free tree arbor day
+INFO:root:1115	traffic signal
+INFO:root:1714	pregnancy discrimination law
+INFO:root:4497	allergy shot mold
+INFO:root:5976	body pain disease
+INFO:root:6828	obtain passport mexico
+INFO:root:6023	indian reservation mississippi
+INFO:root:4358	food folic acid
+INFO:root:5301	government job student
+INFO:root:6316	ecstasy netherlands
+INFO:root:2430	map southeast coast us
+INFO:root:1478	beach
+INFO:root:4219	get patent
+INFO:root:2814	terrorist finance
+INFO:root:6709	staten island bus route
+INFO:root:15	foreign aid united states
+INFO:root:6854	john quincy adams
+INFO:root:8137	outdoor shoot range
+INFO:root:6778	noaa weather prediction
+INFO:root:6646	potato chip size
+INFO:root:210	get us passport 2
+INFO:root:5814	fossil butte wyoming
+INFO:root:2085	finance mobile home
+INFO:root:5188	pro con earthquake area
+INFO:root:3177	michigan low income free income tax
+INFO:root:3822	spain fly warning
+INFO:root:8463	prescription drug death
+INFO:root:9722	father damien
+INFO:root:2752	barnegat light house
+INFO:root:3823	leiomyoma uterus
+INFO:root:3880	ohio state highway patrol shoot
+INFO:root:2478	wash state ferry photo
+INFO:root:2005	social worker hire
+INFO:root:6062	president lincoln ford theater april 14 1865
+INFO:root:9681	forest fire
+INFO:root:2024	anhydrous ammonia use

@@ -7,10 +7,9 @@ from os.path import join
 import codecs
 import sys
 import pyndri
-sys.path.append('../utils')
+from nltk.corpus import stopwords
 from tools4text import get_all_phrases, extract_trec_million_queries, extractTopics
-from tools4text import clean, get_qrels, get_text_of_a_passage
-
+from tools4text import clean, get_qrels, get_text_of_a_passage, read_values
 
 logging.basicConfig(filename='collection2concat_contexts.log', level=logging.DEBUG)
 
@@ -31,25 +30,26 @@ if __name__ == '__main__':
         externalDocId[extD] = doc
 
     print("Extract queries ...")
-    queries = {}
-    if config["train_queries"] == config["test_queries"]:
-        queries = extractTopics(config["train_queries"]) if config["train_queries_format"] == "trec"\
-            else extract_trec_million_queries(config["train_queries"])
-    else:
-        train_queries = extractTopics(config["train_queries"]) if config["train_queries_format"] == "trec" \
-            else extract_trec_million_queries(config["train_queries"])
-        test_queries = extractTopics(config["test_queries"]) if config["test_queries_format"] == "trec" \
-            else extract_trec_million_queries(config["test_queries"])
-        queries = {**train_queries, **test_queries}
-    print("{n} queries to process.".format(n=len(queries)))
+    queries = extract_trec_million_queries(config["queries"])
 
-    queries_text = {}
+    stoplist = set(stopwords.words("english")) if config["stopwords"] else {}
+    qrels_MQ = []  # get only judged queries
+    for file in os.listdir(config["qrels_MQ"]):
+        qrels_MQ += list(read_values(os.path.join(config["qrels_MQ"], file), 0))
+    qrels_MQ = set(qrels_MQ)
+
     q_times = defaultdict(int)
-    print("Pre-process queries ...")
-    for q in tqdm(queries):
-        q_text = clean(queries[q], "krovetz", {})
-        q_times[q_text] += 1
+    print("Pre-process queries %d queries..." % len(qrels_MQ))
+    logging.info("Pre-process queries %d queries..." % len(qrels_MQ))
+    queries_text = {}
+    for q in tqdm(qrels_MQ):
+        q_text = clean(queries[q], config["stemmer"], stoplist)
+        q_times[q_text] += 1  # queries with duplicate content
         queries_text[q] = q_text if q_times[q_text] == 1 else ' '.join([q_text, str(q_times[q_text])])
+        if q_times[q_text] > 1:
+            logging.info("Duplicated: " + q + '\t' + ' '.join([q_text, str(q_times[q_text])]))
+
+    # ################################ heeeeeeeeeeeeeeeeeeeeere ########################
 
     out_trec_f = join(config["output_folder"], "trec_corpus.txt")
     out_t = codecs.open(out_trec_f, "w", encoding='utf8')
