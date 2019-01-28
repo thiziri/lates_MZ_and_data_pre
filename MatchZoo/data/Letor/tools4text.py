@@ -153,13 +153,8 @@ def get_qrels_1(qrels_file):
 
 
 """
-<<<<<<< HEAD
 Read the MQ set file to a dictionary and a set of labels.
 Return dictionary of: {q_id: {d_id:rel, ...}, ...} 
-=======
-Read the qrels file to a dictionary.
-Return dictionary of: {(q_id, d_id):rel} 
->>>>>>> 994bd944e350343b5f056039e7c2e20270fd589f
 """
 def get_qrels(qrels_file):
         labels = set()
