@@ -73,9 +73,15 @@ if __name__ == "__main__":
     if not os.path.exists(config["output"]):
         os.mkdir(config["output"])
     for set_ in tqdm(filtered_sets):
+<<<<<<< HEAD
         with open(os.path.join(config["output"], set_+"_qrels"+".txt"), 'w') as out:
             for q_id in filtered_sets[set_]:
                 lines = '\n'.join([q_id + '\t0\t' + d_id + '\t' + str(judgments[q_id][d_id]) for d_id in judgments[q_id]])
+=======
+        with open(os.path.join(config["output"], set_+"_qrels_"+".txt"), 'w') as out:
+            for q_id in filtered_sets[set_]:
+                lines = '\n'.join([q_id + '\t0' + d_id + '\t' + str(judgments[q_id][d_id]) for d_id in judgments[q_id]])
+>>>>>>> 994bd944e350343b5f056039e7c2e20270fd589f
                 out.write(lines + '\n')
 
 
