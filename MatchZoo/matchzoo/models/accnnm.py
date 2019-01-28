@@ -36,7 +36,7 @@ class A_CCNNM(BasicModel):
         self.__name = 'A_CCNNM'
         self.check_list = ['text1_maxlen', 'text2_maxlen', 'embed', 'embed_size', 'train_embed',  'vocab_size',
                            "context_embed", "context_len", "context_num", "conv_dropout_rate", "pool_size",
-                           "text1_attention", "text2_attention"]
+                           "text1_attention", "text2_attention", "merge_levels"]
         self.embed_trainable = config['train_embed']
         self.setup(config)
         self.initializer_gate = keras.initializers.RandomUniform(minval=-0.01, maxval=0.01, seed=11)
@@ -57,7 +57,7 @@ class A_CCNNM(BasicModel):
         show_layer_info('doc', doc)
 
         embedding = Embedding(self.config['vocab_size'], self.config['embed_size'], weights=[self.config['embed']],
-                              trainable = self.embed_trainable)
+                              trainable=self.embed_trainable)
 
         q_embed = embedding(query)
         d_embed = embedding(doc)
@@ -104,21 +104,21 @@ class A_CCNNM(BasicModel):
             show_layer_info('Dot-dw', d_embed)
         # ####################### attention text2
 
-        cross = Dot(axes=[2, 2], normalize=True)([q_embed, d_embed])  # works  #######################
+        cross = Dot(axes=[2, 2], normalize=False)([q_embed, d_embed])  # dot_product
         show_layer_info('Match-dot', cross)
 
         cross = Permute((2, 1))(cross)  # to apply the convolution on the document axis and get context weights
         show_layer_info('Permute', cross)  # (None, int, int) == (batch, doc_len, query_len)
 
-        contxt = Conv1D(self.config['context_embed'], self.config['context_len'],
+        contxt = Conv1D(self.config['context_embed'], self.config['context_len'],  # filters = context_embed
                        strides=self.config['context_len'],  # we need to get as output single vector of context weights
                        activation='relu',
-                       name="conv",)(cross)
+                       name="conv")(cross)
         contxt = BatchNormalization()(contxt)
         contxt = Dropout(self.config['conv_dropout_rate'])(contxt)
         show_layer_info('Conv1D', contxt)
 
-        # ################################### attention weights
+        # ################################### attention weights on passage level:
         if self.config['context_attention']:
             attention = Dense(1, use_bias=False)(contxt)
             attention = Activation('softmax')(attention)
@@ -126,15 +126,44 @@ class A_CCNNM(BasicModel):
 
             # make_flat = Lambda(lambda x: K.batch_flatten(x))  # make it flat to compute att weights
             contxt = Multiply()([contxt, attention])
-            show_layer_info('Multiply', contxt)
+            show_layer_info('Dot_contxt_w', contxt)
 
-            # select most important:
-            important_context = MaxPooling1D(pool_size=self.config["pool_size"], strides=self.config["pool_size"])
-            contxt = important_context(contxt)
-            show_layer_info('Max_pool', contxt)
+        # select most important:
+        important_context = MaxPooling1D(pool_size=self.config["pool_size"], strides=self.config["pool_size"])
+        contxt = important_context(contxt)
+        show_layer_info('Max_pool', contxt)
+
+        # add the word-level features:
+        if self.config['merge_levels']:
+            # zero padding:
+            word_level = Permute((2, 1))(cross)
+            word_level_padd = Lambda(lambda x: K.reshape(ZeroPadding1D((0, contxt.shape[2] -x.shape[2]))(K.reshape(x,
+                                                                                                                   (-1,
+                                                                                                                    x.shape[2],
+                                                                                                                    x.shape[1]
+                                                                                                                    ))
+                                                                                                         ),
+                                                         (-1, x.shape[1],
+                                                          contxt.shape[2])) if x.shape[-1] < contxt.shape[-1] else x)(word_level)
+            show_layer_info('word_level_padd', word_level_padd)
+
+            contxt_padded = Lambda(lambda x: K.reshape(ZeroPadding1D((0, word_level.shape[2] -x.shape[2]))(K.reshape(x,
+                                                                                                                     (-1,
+                                                                                                                      x.shape[2],
+                                                                                                                      x.shape[1]
+                                                                                                                      ))
+                                                                                                           ),
+                                                       (-1, x.shape[1],
+                                                        word_level.shape[2])) if x.shape[-1] < word_level.shape[-1] else x)(contxt)
+            show_layer_info('contxt_padded', contxt_padded)
+
+            contxt = Concatenate(axis=1, name="merge_levels")([word_level_padd, contxt_padded])
+            show_layer_info('merge_levels', contxt)
 
         if self.config['context_embed'] > 1:  # compute context importance weights
-            contxt = Bidirectional(LSTM(self.config['context_num'], return_sequences=False))(contxt)
+            lstm_units = int(contxt.shape[1]) if self.config['merge_levels'] else self.config['context_num']
+            contxt = Permute((2, 1))(contxt) if self.config['merge_levels'] else contxt
+            contxt = Bidirectional(LSTM(lstm_units, return_sequences=False))(contxt)
             contxt = BatchNormalization()(contxt)
             contxt = Dropout(self.config['lstm_dropout_rate'])(contxt)
             show_layer_info('biLSTM', contxt)
