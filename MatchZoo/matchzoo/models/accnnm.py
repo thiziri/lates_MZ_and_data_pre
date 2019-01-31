@@ -3,6 +3,7 @@ from __future__ import print_function
 from __future__ import absolute_import
 import keras
 import keras.backend as K
+import tensorflow as tf
 from keras.models import Model
 from keras.layers import *
 from keras.layers import Embedding
@@ -171,8 +172,10 @@ class A_CCNNM(BasicModel):
             contxt = Reshape((int(contxt.shape[1]),))(contxt)
             show_layer_info('reshape', contxt)
 
-        contxt = MaxPooling1D()(contxt)
-        show_layer_info('final_max', contxt)
+        # select final top features
+        # contxt = Lambda(lambda x: tf.nn.top_k(x, k=int(int(x.shape[-1])/2), sorted=True,
+        #                                      name="Top_k_final").values)(contxt)
+        # show_layer_info('Top_k_final', contxt)
 
         if self.config['target_mode'] == 'classification':
             out_ = Dense(2, activation='softmax')(contxt)
