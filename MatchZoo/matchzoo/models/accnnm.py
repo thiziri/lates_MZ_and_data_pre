@@ -162,7 +162,7 @@ class A_CCNNM(BasicModel):
 
         if self.config['context_embed'] > 1:  # compute context importance weights
             lstm_units = int(contxt.shape[1]) if self.config['merge_levels'] else self.config['context_num']
-            contxt = Permute((2, 1))(contxt) if self.config['merge_levels'] else contxt
+            # contxt = Permute((2, 1))(contxt) if self.config['merge_levels'] else contxt
             contxt = Bidirectional(LSTM(lstm_units, return_sequences=False))(contxt)
             contxt = BatchNormalization()(contxt)
             contxt = Dropout(self.config['lstm_dropout_rate'])(contxt)
@@ -170,6 +170,9 @@ class A_CCNNM(BasicModel):
         else:
             contxt = Reshape((int(contxt.shape[1]),))(contxt)
             show_layer_info('reshape', contxt)
+
+        contxt = MaxPooling1D()(contxt)
+        show_layer_info('final_max', contxt)
 
         if self.config['target_mode'] == 'classification':
             out_ = Dense(2, activation='softmax')(contxt)
