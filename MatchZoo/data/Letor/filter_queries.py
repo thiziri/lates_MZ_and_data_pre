@@ -78,4 +78,11 @@ if __name__ == "__main__":
                 lines = '\n'.join([q_id + '\t0\t' + d_id + '\t' + str(judgments[q_id][d_id]) for d_id in judgments[q_id]])
                 out.write(lines + '\n')
 
+    # all judged queries:
+    with open(os.path.join(config["output"], "all_judged_qrels.txt"), 'w') as out:
+        lines = '\n'.join([q_id + '\t0\t' + d_id + '\t' + str(judgments[q_id][d_id]) for q_id in judgments for d_id in judgments[q_id]])
+        out.write(lines + '\n')
+
+    print("Done.")
+
 

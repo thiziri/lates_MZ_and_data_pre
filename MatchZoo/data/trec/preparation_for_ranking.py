@@ -42,7 +42,7 @@ if __name__ == '__main__':
         preprocessor.save_word_dict(join(join(basedir, fold), 'word_dict.txt'))
         preprocessor.save_words_stats(join(join(basedir, fold), 'word_stats.txt'))
 
-        fout = open(join(join(basedir, fold), 'corpus_preprocessed.txt'),'w')
+        fout = open(join(join(basedir, fold), 'corpus_preprocessed.txt'), 'w')
         for inum,did in enumerate(dids):
             fout.write('%s %s %s\n' % (did, len(docs[inum]), ' '.join(map(str, docs[inum]))))
         fout.close()

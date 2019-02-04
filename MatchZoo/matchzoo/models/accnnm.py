@@ -173,9 +173,9 @@ class A_CCNNM(BasicModel):
             show_layer_info('reshape', contxt)
 
         # select final top features
-        # contxt = Lambda(lambda x: tf.nn.top_k(x, k=int(int(x.shape[-1])/2), sorted=True,
-        #                                      name="Top_k_final").values)(contxt)
-        # show_layer_info('Top_k_final', contxt)
+        contxt = Lambda(lambda x: tf.nn.top_k(x, k=int(int(x.shape[-1])/2), sorted=True,
+                                              name="Top_k_final")[0])(contxt)  # .values
+        show_layer_info('Top_k_final', contxt)
 
         if self.config['target_mode'] == 'classification':
             out_ = Dense(2, activation='softmax')(contxt)

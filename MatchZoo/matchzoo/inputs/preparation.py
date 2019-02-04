@@ -44,6 +44,7 @@ class Preparation(object):
         subs = line.split(delimiter)
         # print('subs: ', len(subs))
         if 3 != len(subs):
+            print(line)
             raise ValueError('format of data file wrong, should be \'label,text1,text2\'.')
         else:
             return subs[0], subs[1], subs[2]
