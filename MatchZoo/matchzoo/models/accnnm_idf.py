@@ -148,7 +148,7 @@ class A_CCNNM(BasicModel):
         if self.config['merge_levels']:
             # zero padding:
             word_level = Permute((2, 1))(cross)
-            word_level_padd = Lambda(lambda x: K.reshape(ZeroPadding1D((0, contxt.shape[2] -x.shape[2]))(K.reshape(x,
+            word_level_padd = Lambda(lambda x: K.reshape(ZeroPadding1D((0, contxt.shape[2] - x.shape[2]))(K.reshape(x,
                                                                                                                    (-1,
                                                                                                                     x.shape[2],
                                                                                                                     x.shape[1]

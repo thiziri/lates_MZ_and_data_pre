@@ -89,7 +89,7 @@ class A_CCNNM(BasicModel):
                 for slice in slices:
                     s_dw = Dense(1, kernel_initializer=self.initializer_gate, use_bias=False)(slice)
                     s_dw = Lambda(lambda x: softmax(x, axis=1), output_shape=(self.config['context_len'],))(s_dw)
-                    attention_ws.append(s_dw)  # get attention weights per contexte
+                    attention_ws.append(s_dw)  # get attention weights per context
                 # concat all the attention weights
                 d_w = concatenate(attention_ws, 1)
             else:
